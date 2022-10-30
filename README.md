@@ -1,6 +1,6 @@
 # Rede Language Design
 
-[![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+![Discord Shield](https://discordapp.com/api/guilds/1036138273476722778/widget.png?style=shield)
 
 Welcome! This repo is dedicated to the design of the Rede language. New Rede language features are considered, defined, and specified here.
 
