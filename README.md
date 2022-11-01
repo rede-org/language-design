@@ -16,13 +16,15 @@ The language is implemented in the rede-org/language-dev repo, based upon the de
 
 Rede (REactive Data Evaluation), pronounced the same as "reed" and "read", is the first Contextual Programming language. In accordance with Contextual Programming, Rede code is entirely data-driven with runtime logic determined by the data of the application. Reders (Rede devs) define data as contexts and logic as operations to occur when contextual conditions upon those operations are met. Operations can be encapsulated within behaviors, which provide soft-bindings between the contexts and limit the exposure of their operations.
 
-## What are the Goals of Rede?
+## What are the Principles of Rede?
 
 **Proper Rede code is redeable** (pun intended)<br>Rede emphasizes readability, striving to be close to natural language when reasonable.
 
 **Redeing with 'when'** ('Redeing' here meaning to read/write Rede code)<br>As opposed to 'how' or 'what', Rede focuses on coding from 'when', which lets Rede abstract away the concerns of parallelism and make control flow a quality of the data instead of a means to structure logic. Rede code architecture can be largely described through statements that start with 'when'.
 
 **Rede for fast, secure, dynamic applications**<br>Rede code is entirely data-driven and composition-based. This enables better performance through effective data management and automated threading, the elimination of ambiguity by removing 'null' and inheritance, the reduction of coupling between logic, and inherent support for dynamic systems of functionality.
+
+A more detailed overview of Rede and its goals are described in the [Specification Introduction](specification/Introduction.md).
 
 ## Why do we need Rede?
 
