@@ -1,6 +1,6 @@
 # Rede Language Design
 
-![Discord Shield](https://discordapp.com/api/guilds/1036138273476722778/widget.png?style=shield) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+[![Discord Shield](https://discordapp.com/api/guilds/1036138273476722778/widget.png?style=shield)](https://discord.gg/S33dUaspER) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
 
 Welcome! This repo is dedicated to the design of the Rede language. New Rede language features are considered, defined, and specified here.
 
