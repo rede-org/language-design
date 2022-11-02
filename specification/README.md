@@ -2,4 +2,4 @@
 
 - [§1](Introduction.md) Introduction
 - [§2](Scope.md) Scope
-- [§3](TermsAndDefinitions.md) Terms and Definitions
+- [§3](Terms-And-Definitions.md) Terms and Definitions
