@@ -8,7 +8,7 @@ Welcome! This repo is dedicated to the design of the Rede language. New Rede lan
 
 - The full language specifications for all released versions.
 - The potential language specifications for all versions currently under consideration (called "drafts").
-- A summary of the language version history.
+- A summary of the [language version history](Language-History.md).
 
 The language is implemented in the rede-org/language-dev repo, based upon the design specifications outlined here.
 
