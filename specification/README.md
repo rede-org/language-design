@@ -1,5 +1,5 @@
-# Table of Contents
+# Rede Specification
 
-- [§1](Introduction.md) Introduction
-- [§2](Scope.md) Scope
-- [§3](Terms-And-Definitions.md) Terms and Definitions
+This specification is available for better viewing on GitBook.
+
+[View on GitBook](https://rede.gitbook.io/rede-language-design/)
