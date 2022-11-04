@@ -1,4 +1,4 @@
-# 2 Scope
+# Scope
 
 This specification describes:
 - The generalized architecture of Rede code.

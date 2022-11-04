@@ -1,4 +1,4 @@
-# 3 Terms and Definitions
+# Terms and Definitions
 
 The specific terminology of this specification is defined here.
 
