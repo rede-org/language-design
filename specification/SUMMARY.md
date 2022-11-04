@@ -1,6 +1,7 @@
-# Table of contents
+# Summary
 
-* [Introduction](README.md)
+## Overview
+
+* [Introduction](Introduction.md)
 * [Scope](Scope.md)
 * [Terms and Definitions](Terms-And-Definitions.md)
-* [Table of Contents](<README (1).md>)
