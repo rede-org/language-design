@@ -1,4 +1,4 @@
-# 1 Introduction
+# Introduction
 
 This specification is intended to describe the grammar and design intentions of the Rede programming language. The language is the first to embrace 
 the concepts of the Contextual Programming paradigm invented by Lucas Stertz. In doing so, the design the of the language emphasizes data-driven 
