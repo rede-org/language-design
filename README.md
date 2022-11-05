@@ -4,6 +4,8 @@
 
 Welcome! This repo is dedicated to the design of the Rede language. New Rede language features are considered, defined, and specified here.
 
+[Checkout the specification GitBook.](https://rede.gitbook.io/rede-language-design/)
+
 ## What is in this repo?
 
 - The full language specifications for all released versions.
