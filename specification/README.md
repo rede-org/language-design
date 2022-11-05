@@ -1,5 +1,5 @@
 # Rede Specification
 
-This specification is available for better viewing on GitBook.
+This specification is available for better viewing as a GitBook.
 
-[View on GitBook](https://rede.gitbook.io/rede-language-design/)
+[View the GitBook](https://rede.gitbook.io/rede-language-design/)
