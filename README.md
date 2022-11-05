@@ -26,7 +26,7 @@ Rede (REactive Data Evaluation), pronounced the same as "reed" and "read", is th
 
 **Rede for fast, secure, dynamic applications**<br>Rede code is entirely data-driven and composition-based. This enables better performance through effective data management and automated threading, the elimination of ambiguity by removing 'null' and inheritance, the reduction of coupling between logic, and inherent support for dynamic systems of functionality.
 
-A more detailed overview of Rede and its goals are described in the [Specification Introduction](specification/Introduction.md).
+A more detailed overview of Rede and its goals are described in the [Specification Introduction](https://rede.gitbook.io/rede-language-design/overview/introduction).
 
 ## Why do we need Rede?
 
