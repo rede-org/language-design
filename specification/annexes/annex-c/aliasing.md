@@ -5,13 +5,17 @@ The following code examples demonstrate how a previously declared type can have 
 ## In General
 
 ```
-aliasName: [originalTypeName] 
-    AliasA[OriginalMemberA], 
-    AliasB[OriginalMemberB].
+aliasName: [typeName] 
+    AliasA[MemberA], 
+    AliasB[MemberB].
 ```
 
 ```
-aliasName: [originalTypeName]... `Defaults all members to the same name.`
+aliasName: [typeName] AliasA[MemberA], AliasB[MemberB].
+```
+
+```
+aliasName: [typeName]... `Defaults all members to their same name in the alias.`
 ```
 
 ## Contexts

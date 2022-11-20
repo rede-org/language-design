@@ -12,3 +12,4 @@
 * [Annex B - Symbols and Keywords](annexes/annex-b/README.md)
 * [Annex C - Code Examples](annexes/annex-c/README.md)
   * [Aliasing](annexes/annex-c/aliasing.md)
+  * [Comments](annexes/annex-c/comments.md)
