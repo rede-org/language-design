@@ -8,7 +8,7 @@
 
 ## Annexes
 
-* [Annex A - Complete Grammar](Annex-A.md)
-* [Annex B - Symbols and Keywords](annexes/annex-b-symbols-and-keywords.md)
-* [Annex C - Code Examples](Annex-B.md)
+* [Annex A - Complete Grammar](annexes/annex-a/README.md)
+* [Annex B - Symbols and Keywords](annexes/annex-b/README.md)
+* [Annex C - Code Examples](annexes/annex-c/README.md)
   * [Aliasing](annexes/annex-c/aliasing.md)
