@@ -9,4 +9,5 @@
 ## Annexes
 
 * [Annex A - Complete Grammar](Annex-A.md)
-* [Annex B - Code Examples](Annex-B.md)
+* [Annex C - Code Examples](annexes/annex-c/README.md)
+  * [Aliasing](annexes/annex-c/aliasing.md)
