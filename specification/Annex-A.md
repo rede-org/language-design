@@ -1,3 +1,3 @@
-## Annex A - Complete Grammar
+# Annex A - Complete Grammar
 
-This annex will contain the complete and current grammar of the entire language.
+This annex contains the complete and current grammar of the entire language.
