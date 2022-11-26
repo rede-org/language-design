@@ -18,6 +18,12 @@ aliasName: [typeName] AliasA[MemberA], AliasB[MemberB].
 aliasName: [typeName]... `Defaults all members to their same name in the alias.`
 ```
 
+```
+multiAliasName: [typeNameA, typeNameB]
+    AliasA[MemberAA, MemberBA],
+    AliasB[MemberAB, MemberBB].
+```
+
 ## Contexts
 
 ```
@@ -52,4 +58,33 @@ aliasName: [someRecordName]
 
 ```
 aliasName: [someRecordName]...
+```
+
+## Use
+
+### Context Awaiting
+
+```
+await someContext as aliasName,
+```
+
+### Variable Assignment
+
+```
+aliasedRecord = someRecord as aliasName,
+```
+
+### Variable Declaration
+
+```
+aliasedRecord: aliasName, someRecord;  `Implicit alias.`
+```
+
+```
+nonAliasedRecord: recordName, aliasedRecord;  `Implicit reverse alias.`
+```
+
+```
+`Alias someRecord as multiAliasName, then reverse alias to otherRecordName.`
+otherRecord: otherRecordName, someRecord as multiAliasName;
 ```
