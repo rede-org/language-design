@@ -11,6 +11,6 @@
 * [Annex A - Complete Grammar](annexes/annex-a/README.md)
 * [Annex B - Symbols and Keywords](annexes/annex-b/README.md)
 * [Annex C - Code Examples](annexes/annex-c/README.md)
-  * [Enums](annexes/annex-c/enums.md)
   * [Aliasing](annexes/annex-c/aliasing.md)
+  * [Enums](annexes/annex-c/enums.md)
   * [Comments](annexes/annex-c/comments.md)
