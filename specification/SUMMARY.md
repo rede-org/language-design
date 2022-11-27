@@ -13,5 +13,6 @@
 * [Annex C - Code Examples](annexes/annex-c/README.md)
   * [Aliasing](annexes/annex-c/aliasing.md)
   * [Comments](annexes/annex-c/comments.md)
+  * [Contexts](annexes/annex-c/contexts.md)
   * [Enums](annexes/annex-c/enums.md)
   * [Meta](annexes/annex-c/meta.md)

@@ -43,12 +43,12 @@ sectionName: meta  `Multiple namespace referencing, for three namespaces.`
 ## Renaming
 
 ```
-sectionName: meta NewContextName[OtherNamespace(OtherContextName)].
+sectionName: meta newContextName[OtherNamespace(otherContextName)].
 ```
 
 ```
 sectionName: meta
-    NewContextNameA[OtherNamespace(OtherContextName)],
-    NewContextNameB[AnotherNamespace(InnerNamespace(AnotherContextName))].
+    newContextNameA[OtherNamespace(otherContextName)],
+    newContextNameB[AnotherNamespace(InnerNamespace(anotherContextName))].
 ```
 

@@ -29,7 +29,7 @@ multiAliasName: [typeNameA, typeNameB]
 ```
 aliasName: [someContextName]
     AliasA[PropertyA],
-    AliasB[PropertyB].
+    AliasB[PropertyB] readonly.
 ```
 
 ```
@@ -52,7 +52,7 @@ aliasName: [someEnumName]...
 
 ```
 aliasName: [someRecordName]
-    AliasA[ValueA],
+    AliasA[ValueA] readonly,
     AliasB[ValueB].
 ```
 
