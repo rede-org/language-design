@@ -16,23 +16,6 @@ contextName: context
 ### As a Host
 
 ```
-contextName: context  `If no mutualist exists, aliased values are independent.`
-    MutualistA: mutualist otherContextName;
-    ValueA[MutualistA(SomeFloat), 2.0],  `Alias mutualist value, default to 2.0.`
-    ValueB[MutualistA(SomeBool)] readonly,
-    ValueB: bool, false.
-```
-
-```
-contextName: context  `Uses either existing mutualist value, neither, or binds both.`
-    MutualistA: mutualist otherContextName;
-    MutualistB: mutualist anotherContextName;
-    ValueA[MutualistA(SomeFloat), MutualistB(OtherFloat), 2.0].
-```
-
-### As a Mutualist
-
-```
 contextName: context
     HostA: host otherContextName;
     ValueA[HostA(SomeFloat), 3.0],  `Alias host value, default to 3.0.`
@@ -45,6 +28,23 @@ contextName: context  `Binds two hosts' values through a value.`
     HostA: host otherContextName;
     HostB: host anotherContextName;
     ValueA[HostA(SomeFloat), HostB(OtherFloat), 3.0].
+```
+
+### As a Mutualist
+
+```
+contextName: context  `If no mutualist exists, aliased values are independent.`
+    MutualistA: mutualist otherContextName;
+    ValueA[MutualistA(SomeFloat), 2.0],  `Alias mutualist value, default to 2.0.`
+    ValueB[MutualistA(SomeBool)] readonly,
+    ValueB: bool, false.
+```
+
+```
+contextName: context  `Uses either existing mutualist value, neither, or binds both.`
+    MutualistA: mutualist otherContextName;
+    MutualistB: mutualist anotherContextName;
+    ValueA[MutualistA(SomeFloat), MutualistB(OtherFloat), 2.0].
 ```
 
 ### Based on a Record
@@ -84,159 +84,7 @@ contextName: context
 
 ## Use
 
-### Awaiting
+### Variable Assignment
 
-```
-await someContext,
-```
 
-```
-await someContext with otherContext,
-```
-
-```
-await someContext as contextAlias with otherContext,
-```
-
-### Deregistration
-
-```
-deregister someContext,
-```
-
-### Equality
-
-```
-`Assume the following for all equality code examples.`
-
-contextName: context
-    ValueA: int, -1;
-    ValueB: string, "".
-
-recordName:
-{
-    ValueA: int, -1;
-    ValueB: string, "";
-}.
-
-c: contextName;
-r: recordName;
-```
-
-```
-c == r,
-```
-
-```
-c == {ValueA[-1], ValueB[""]},
-```
-
-```
-c == {ValueA[-1], ...},  `Match remaining values.`
-```
-
-```
-c(ValueA, ValueB) == {ValueA[-1], ValueB[""]},
-```
-
-```
-c(ValueA, ValueB) == r(ValueA, ValueB),
-```
-
-### Registration
-
-```
-register someContext,
-```
-
-```
-`Declare and register the variable.`
-register someContext: contextName, {ValueA[1], ValueB[""]};
-
-`All other declaration methods can also be used.`
-```
-
-### Value Assignment
-
-```
-someContext(ValueA) = 2,
-```
-
-```
-someContext(ValueA, ValueB) = {ValueA[1], ValueB[""]},
-```
-
-```
-someContext(ValueA, ValueB) = otherContext(ValueA, ValueB),
-```
-
-```
-someContext(ValueA, ValueB) = otherContext(ValueA[ValueC], ValueB[ValueD]),
-```
-
-```
-someContext~(ValueA, ValueB) = {ValueC[3.5], ValueD[0], ValueE[true]},
-```
-
-```
-someContext~(ValueA, ValueB) = {ValueC[3.5], ...},  `Match remaining values.`
-```
-
-```
-someContext(...) = matchingRecord,  `Assign all value.`
-```
-
-```
-someContext(...) = someRecord with contextMapping,
-```
-
-```
-someContext(...) = someRecord where
-{
-    ValueA = RecordValueA,
-    ValueB = RecordValueB
-}
-```
-
-```
-someContext(...) = {ValueA[1], ValueB[""], ...},  `Match remaining values.`
-```
-
-### Variable Declaration
-
-```
-someContext: contextName;  `Declare with all default values.`
-```
-
-```
-someContext: contextName, {ValueA[1], ValueB[""]};
-```
-
-```
-someContext: contextName, {ValueA[1], ValueB[""], ...};  `Default other values.`
-```
-
-```
-someContext: contextName, matchingRecord;
-```
-
-```
-someContext: contextName, someRecord with contextMapping;
-```
-
-```
-someContext: contextName, someRecord where
-{
-    ValueA = RecordValueA,
-    ValueB = RecordValueB
-}
-```
-
-```
-someContext: contextName, matchingRecord, HostA is otherContext;
-```
-
-```
-someContext: contextName, matchingRecord, MutualistA is otherContext;
-```
 

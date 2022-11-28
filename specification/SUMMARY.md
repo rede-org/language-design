@@ -15,4 +15,5 @@
   * [Comments](annexes/annex-c/comments.md)
   * [Contexts](annexes/annex-c/contexts.md)
   * [Enums](annexes/annex-c/enums.md)
+  * [Mappings](annexes/annex-c/mappings.md)
   * [Meta](annexes/annex-c/meta.md)
