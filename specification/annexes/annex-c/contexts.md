@@ -47,6 +47,13 @@ contextName: context  `Uses either existing mutualist value, neither, or binds b
     ValueA[MutualistA(SomeFloat), MutualistB(OtherFloat), 2.0].
 ```
 
+### Based on a Record
+
+```
+contextName: context[recordName]
+    NonRecordValueA: int, -1.
+```
+
 ### Generic
 
 ```
