@@ -17,3 +17,5 @@
   * [Enums](annexes/annex-c/enums.md)
   * [Mappings](annexes/annex-c/mappings.md)
   * [Meta](annexes/annex-c/meta.md)
+* [Annex D - Program Examples](annexes/annex-d-program-examples/README.md)
+  * [Hello World](annexes/annex-d-program-examples/hello-world.md)
