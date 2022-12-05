@@ -1,6 +1,10 @@
-# Aliasing
+---
+description: >-
+  The following code examples demonstrate how a previously declared type can
+  have an alternative name (an alias). See section [TBD] for details.
+---
 
-The following code examples demonstrate how a previously declared type can have an alternative name (an alias). See section \[TBD] for details.
+# Aliases
 
 ## In General
 

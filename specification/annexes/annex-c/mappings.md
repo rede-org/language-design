@@ -1,6 +1,10 @@
-# Mappings
+---
+description: >-
+  The following code examples demonstrate how a mapping can be declared and
+  used. See section [TBD] for details.
+---
 
-The following code examples demonstrate how a mapping can be declared and used. See section \[TBD] for details.
+# Mappings
 
 ## Declaration
 

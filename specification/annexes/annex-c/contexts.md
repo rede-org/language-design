@@ -1,6 +1,10 @@
-# Contexts
+---
+description: >-
+  The following code examples demonstrate how a context type can be declared and
+  used. See section [TBD] for details.
+---
 
-The following code examples demonstrate how a context type can be declared and used. See section \[TBD] for details.
+# Contexts
 
 ## Type Declaration
 
@@ -239,4 +243,3 @@ someContext: contextName, matchingRecord, HostA is otherContext;
 ```
 someContext: contextName, matchingRecord, MutualistA is otherContext;
 ```
-
