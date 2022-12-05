@@ -213,11 +213,19 @@ someContext: contextName;  `Declare with all default values.`
 ```
 
 ```
+someContext: genericContextName(int); `Declare with all default values.`
+```
+
+```
 someContext: contextName, {ValueA[1], ValueB[""]};
 ```
 
 ```
 someContext: contextName, {ValueA[1], ValueB[""], ...};  `Default other values.`
+```
+
+```
+someContext: genericContextName(int), {GenericValueA[1], NonGenericValueA[""]};
 ```
 
 ```

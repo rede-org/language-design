@@ -1,10 +1,6 @@
----
-description: >-
-  The following code examples demonstrate how comments can be added to code. See
-  section [TBD] for details.
----
-
 # Comments
+
+The following code examples demonstrate how comments can be added to code. See section \[TBD] for details.
 
 ## In General
 

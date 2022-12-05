@@ -1,10 +1,6 @@
----
-description: >-
-  The following code examples demonstrate how an enum type can be declared and
-  used. See section [TBD] for details.
----
-
 # Enums
+
+The following code examples demonstrate how an enum type can be declared and used. See section \[TBD] for details.
 
 ## Type Declaration
 
