@@ -75,7 +75,7 @@ await someContext as aliasName,
 ### Variable Assignment
 
 ```
-aliasedRecord = someRecord as aliasName,
+aliasedRecord is someRecord as aliasName,
 ```
 
 ### Variable Declaration

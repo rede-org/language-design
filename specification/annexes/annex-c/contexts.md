@@ -128,23 +128,23 @@ r: recordName;
 ```
 
 ```
-c == r,
+c = r,
 ```
 
 ```
-c == {ValueA[-1], ValueB[""]},
+c = {ValueA[-1], ValueB[""]},
 ```
 
 ```
-c == {ValueA[-1], ...},  `Match remaining values.`
+c = {ValueA[-1], ...},  `Match remaining values.`
 ```
 
 ```
-c(ValueA, ValueB) == {ValueA[-1], ValueB[""]},
+c(ValueA, ValueB) = {ValueA[-1], ValueB[""]},
 ```
 
 ```
-c(ValueA, ValueB) == r(ValueA, ValueB),
+c(ValueA, ValueB) = r(ValueA, ValueB),
 ```
 
 ### Registration
@@ -163,47 +163,47 @@ register someContext: contextName, {ValueA[1], ValueB[""]};
 ### Value Assignment
 
 ```
-someContext(ValueA) = 2,
+someContext(ValueA) is 2,
 ```
 
 ```
-someContext(ValueA, ValueB) = {ValueA[1], ValueB[""]},
+someContext(ValueA, ValueB) is {ValueA[1], ValueB[""]},
 ```
 
 ```
-someContext(ValueA, ValueB) = otherContext(ValueA, ValueB),
+someContext(ValueA, ValueB) is otherContext(ValueA, ValueB),
 ```
 
 ```
-someContext(ValueA, ValueB) = otherContext(ValueA[ValueC], ValueB[ValueD]),
+someContext(ValueA, ValueB) is otherContext(ValueA[ValueC], ValueB[ValueD]),
 ```
 
 ```
-someContext~(ValueA, ValueB) = {ValueC[3.5], ValueD[0], ValueE[true]},
+someContext~(ValueA, ValueB) is {ValueC[3.5], ValueD[0], ValueE[true]},
 ```
 
 ```
-someContext~(ValueA, ValueB) = {ValueC[3.5], ...},  `Match remaining values.`
+someContext~(ValueA, ValueB) is {ValueC[3.5], ...},  `Match remaining values.`
 ```
 
 ```
-someContext(...) = matchingRecord,  `Assign all value.`
+someContext(...) is matchingRecord,  `Assign all value.`
 ```
 
 ```
-someContext(...) = someRecord with contextMapping,
+someContext(...) is someRecord with contextMapping,
 ```
 
 ```
-someContext(...) = someRecord where
+someContext(...) is someRecord where
 {
-    ValueA = RecordValueA,
-    ValueB = RecordValueB
-}
+    ValueA is RecordValueA,
+    ValueB is RecordValueB
+},
 ```
 
 ```
-someContext(...) = {ValueA[1], ValueB[""], ...},  `Match remaining values.`
+someContext(...) is {ValueA[1], ValueB[""], ...},  `Match remaining values.`
 ```
 
 ### Variable Declaration
@@ -239,9 +239,9 @@ someContext: contextName, someRecord with contextMapping;
 ```
 someContext: contextName, someRecord where
 {
-    ValueA = RecordValueA,
-    ValueB = RecordValueB
-}
+    ValueA is RecordValueA,
+    ValueB is RecordValueB
+};
 ```
 
 ```
