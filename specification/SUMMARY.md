@@ -15,6 +15,7 @@
   * [Comments](annexes/annex-c/comments.md)
   * [Contexts](annexes/annex-c/contexts.md)
   * [Enums](annexes/annex-c/enums.md)
+  * [Lists](annexes/annex-c/lists.md)
   * [Mappings](annexes/annex-c/mappings.md)
   * [Meta](annexes/annex-c/meta.md)
 * [Annex D - Program Examples](annexes/annex-d-program-examples/README.md)
