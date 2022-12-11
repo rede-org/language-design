@@ -21,7 +21,7 @@ enumName: [int] A[100], B[101], C[102]
 ### Variable Assignment
 
 ```
-e is enumName(B),
+e = enumName(B),
 ```
 
 ### Variable Declaration

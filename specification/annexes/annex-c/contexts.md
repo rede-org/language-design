@@ -110,6 +110,8 @@ deregister someContext,
 
 ### Equality
 
+#### Setup
+
 ```
 `Assume the following for all equality code examples.`
 
@@ -126,6 +128,18 @@ recordName:
 c: contextName;
 r: recordName;
 ```
+
+#### Approximate
+
+```
+c ~ {ValueA[-1]},
+```
+
+```
+c(ValueA, ValueB) ~ r(ValueB),
+```
+
+#### Strict
 
 ```
 c = r,
