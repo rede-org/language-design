@@ -13,9 +13,9 @@ description: >-
 ```
 someMapping: contextName from otherContextName where
 {
-    ContextValueA = (OtherValueA(SubValue)),
-    ContextValueB = (OtherValueB) + 1,
-    ContextValueC = (OtherValueC)
+    ContextValueA is (OtherValueA(SubValue)),
+    ContextValueB is (OtherValueB) + 1,
+    ContextValueC is (OtherValueC)
 }.
 ```
 
@@ -24,9 +24,9 @@ someMapping: contextName from otherContextName where
 ```
 someMapping: contextName from recordName where
 {
-    ContextValueA = (RecordValueA) to string,
-    ContextValueB = (RecordValueB) + 1,
-    ContextValueC = (RecordValueC)
+    ContextValueA is (RecordValueA) to string,
+    ContextValueB is (RecordValueB) + 1,
+    ContextValueC is (RecordValueC)
 }.
 ```
 
@@ -35,9 +35,9 @@ someMapping: contextName from recordName where
 ```
 someMapping: enumName from otherEnumName where
 {
-    A = (X),
-    B = (Y), 
-    C = (Z)
+    A is (X),
+    B is (Y), 
+    C is (Z)
 }.
 ```
 
@@ -46,9 +46,9 @@ someMapping: enumName from otherEnumName where
 ```
 someMapping: recordName from contextName where
 {
-    RecordValueA = (ContextValueA) to int,
-    RecordValueB = (ContextValueB) - 1,
-    RecordValueC = (ContextValueC)
+    RecordValueA is (ContextValueA) to int,
+    RecordValueB is (ContextValueB) - 1,
+    RecordValueC is (ContextValueC)
 }.
 ```
 
@@ -57,27 +57,27 @@ someMapping: recordName from contextName where
 ```
 someMapping: recordName from otherRecordName where
 {
-    RecordValueA = (OtherValueA),
-    RecordValueB = (OtherValueB) - 1,
-    RecordValueC = (OtherValueC(SubValue)) to float
+    RecordValueA is (OtherValueA),
+    RecordValueB is (OtherValueB) - 1,
+    RecordValueC is (OtherValueC(SubValue)) to float
 }.
 ```
 
 ### To Value Type
 
 ```
-someNameToString: string from someName where value = "Debug: " + (ValueA).
+someNameToString: string from someName where value is "Debug: " + (ValueA).
 ```
 
 ```
-someNameToInt: int from someName where value = (ValueA) + (ValueB) + (ValueC).
+someNameToInt: int from someName where value is (ValueA) + (ValueB) + (ValueC).
 ```
 
 ```
 listToHalfSum: int from {int*} where 
 {
-    value += (...),
-    value /= 2
+    value is value + (...),
+    value is value / 2
 }.
 ```
 
@@ -94,11 +94,11 @@ newContext: contextName, someRecord with someMapping;
 ```
 
 ```
-someEnum = anEnum with someMapping,
+someEnum is anEnum with someMapping,
 ```
 
 ```
-someInt = someList with listToHalfSum,
+someInt is someList with listToHalfSum,
 ```
 
 ### Inline
@@ -106,34 +106,34 @@ someInt = someList with listToHalfSum,
 ```
 someRecord: recordName, otherRecord where
 {
-    RecordValueA = (OtherValueA),
-    RecordValueB = (OtherValueB) - 1,
-    RecordValueC = (OtherValueC(SubValue)) to float
+    RecordValueA is (OtherValueA),
+    RecordValueB is (OtherValueB) - 1,
+    RecordValueC is (OtherValueC(SubValue)) to float
 }.
 ```
 
 ```
 newContext: contextName, someRecord where
 {
-    ContextValueA = (RecordValueA) to string,
-    ContextValueB = (RecordValueB) + 1,
-    ContextValueC = (RecordValueC)
+    ContextValueA is (RecordValueA) to string,
+    ContextValueB is (RecordValueB) + 1,
+    ContextValueC is (RecordValueC)
 }.
 ```
 
 ```
-someEnum = otherEnum where
+someEnum is otherEnum where
 {
-    A = (X),
-    B = (Y), 
-    C = (Z)
+    A is (X),
+    B is (Y), 
+    C is (Z)
 },
 ```
 
 ```
-someInt = someList where 
+someInt is someList where 
 {
-    value += (...),
-    value /= 2
+    value is value + (...),
+    value is value / 2
 },
 ```
