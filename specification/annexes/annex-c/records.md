@@ -25,8 +25,8 @@ recordName:
 recordName(TValue):
 {
     ValueA: TValue;
-    ValueB: otherGenericRecordName(TValue).
-}
+    ValueB: otherGenericRecordName(TValue);
+}.
 ```
 
 ### With In-lined Value Aliasing
@@ -36,8 +36,8 @@ recordName:
 {
     ValueA: recordName;
     ValueAliasA[ValueA(A)],
-    ValueAliasB[ValueB(B)].
-}
+    ValueAliasB[ValueB(B)]
+}.
 ```
 
 ## Use

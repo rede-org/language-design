@@ -19,7 +19,7 @@
   * [Lists](annexes/annex-c/lists.md)
   * [Mappings](annexes/annex-c/mappings.md)
   * [Meta](annexes/annex-c/meta.md)
-  * [Records](annexes/annex-c/contexts-1.md)
+  * [Records](annexes/annex-c/records.md)
   * [Sets](annexes/annex-c/sets.md)
 * [Annex D - Program Examples](annexes/annex-d-program-examples/README.md)
   * [Hello World](annexes/annex-d-program-examples/hello-world.md)
