@@ -116,6 +116,10 @@ someDict: {string: int, -1}, {"A"[0], "B"[1], "C"[2]};
 ```
 
 ```
+someDict: var, otherDict;  `Dictionary type determined by initialization value.`
+```
+
+```
 someDict: dictName, {"A"[0], "B"[1], "C"[2]};
 ```
 

@@ -72,6 +72,10 @@ someSet: {int}, {1, 2, 3};
 ```
 
 ```
+someSet: var, otherSet;  `Set type determined by initialization value.`
+```
+
+```
 someSet: setName, {1, 2, 3};
 ```
 

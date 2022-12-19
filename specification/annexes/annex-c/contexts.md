@@ -51,6 +51,12 @@ contextName: context  `Binds two hosts' values through a value.`
     ValueA[HostA(SomeFloat), HostB(OtherFloat), 3.0].
 ```
 
+### Based on a Context
+
+<pre><code><strong>otherContextName: context(contextName]  `Only inherits values/qualifiers, not use.`
+</strong>    AdditionalValue: int, -1.
+</code></pre>
+
 ### Based on a Record
 
 ```
@@ -84,6 +90,11 @@ contextName: context
     ValueB: recordName, {A[1]};
     QualifierA: ValueA > ConstantA;
     QualifierB: Value < ValueB(A).
+```
+
+```
+otherContextName: context[contextName]
+    QualifierA: ValueA > ConstantA
 ```
 
 ## Use
@@ -201,6 +212,10 @@ someContext~(ValueA, ValueB) is {ValueC[3.5], ...},  `Match remaining values.`
 ```
 
 ```
+someContext(...) is matchingContext,
+```
+
+```
 someContext(...) is matchingRecord,  `Assign all value.`
 ```
 
@@ -231,15 +246,15 @@ someContext: genericContextName(int); `Declare with all default values.`
 ```
 
 ```
-someContext: contextName, {ValueA[1], ValueB[""]};
-```
-
-```
-someContext: contextName, {ValueA[1], ValueB[""], ...};  `Default other values.`
+someContext: contextName, {ValueA[1], ValueB[""]};  `Default unspecified values.`
 ```
 
 ```
 someContext: genericContextName(int), {GenericValueA[1], NonGenericValueA[""]};
+```
+
+```
+someContext: contextName, matchingContext;
 ```
 
 ```

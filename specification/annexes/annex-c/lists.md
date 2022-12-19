@@ -101,6 +101,10 @@ someList: {int*}, {1, 2, 3};
 ```
 
 ```
+someList: var, otherList;  `List type determined by initialization value.`
+```
+
+```
 someList: listName, {1, 2, 3};
 ```
 
