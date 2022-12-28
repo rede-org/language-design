@@ -40,7 +40,77 @@ recordName:
 }.
 ```
 
-## Use
+## Accessing
+
+### Retrieving
+
+```
+someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
+someRecord(ValueA) = -1
+```
+
+```
+someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
+someRecord(ValueA, ValueB) = {-1, 2}
+```
+
+```
+someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
+someRecord(...) = {-1, 2}
+```
+
+```
+someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
+someRecord!(ValueA) = 2
+```
+
+### Setting
+
+```
+someRecord(ValueA) is 2,
+```
+
+```
+someRecord(ValueA, ValueB) is {ValueA[1], ValueB[""]},
+```
+
+```
+someRecord(ValueA, ValueB) is otherRecord(ValueA, ValueB),
+```
+
+```
+someRecord(ValueA, ValueB) is otherRecord(ValueA[ValueC], ValueB[ValueD]),
+```
+
+```
+someRecord!(ValueA, ValueB) is {ValueC[3.5], ValueD[0], ValueE[true]},
+```
+
+```
+someRecord!(ValueA, ValueB) is {ValueC[3.5], ...},  `Match remaining values.`
+```
+
+```
+someRecord(...) is matchingRecord,  `Assign all values.`
+```
+
+```
+someRecord(...) is otherRecord with recordMapping,
+```
+
+```
+someRecord(...) is otherRecord where
+{
+    ValueA is RecordValueA,
+    ValueB is RecordValueB
+},
+```
+
+```
+someRecord(...) is {ValueA[1], ValueB[""], ...},  `Match remaining values.`
+```
+
+## Operators
 
 ### Equality
 
@@ -94,61 +164,19 @@ r(ValueA, ValueB) = {ValueA[-1], ValueB[""]},
 <pre><code><strong>r(ValueA, ValueB) = c(ValueA, ValueB),
 </strong></code></pre>
 
-### Value Assignment
+## Variables
+
+### Assignment
 
 ```
 someRecord is {ValueA[1], ValueB[""]},
 ```
 
 ```
-someRecord is {ValueA[1], ...},  `Default remaining values.`
+someRecord is {ValueA[1], ...},  `Match (default)remaining values.`
 ```
 
-```
-someRecord(ValueA) is 2,
-```
-
-```
-someRecord(ValueA, ValueB) is {ValueA[1], ValueB[""]},
-```
-
-```
-someRecord(ValueA, ValueB) is otherRecord(ValueA, ValueB),
-```
-
-```
-someRecord(ValueA, ValueB) is otherRecord(ValueA[ValueC], ValueB[ValueD]),
-```
-
-```
-someRecord~(ValueA, ValueB) is {ValueC[3.5], ValueD[0], ValueE[true]},
-```
-
-```
-someRecord~(ValueA, ValueB) is {ValueC[3.5], ...},  `Match remaining values.`
-```
-
-```
-someRecord(...) is matchingRecord,  `Assign all value.`
-```
-
-```
-someRecord(...) is otherRecord with recordMapping,
-```
-
-```
-someRecord(...) is otherRecord where
-{
-    ValueA is RecordValueA,
-    ValueB is RecordValueB
-},
-```
-
-```
-someRecord(...) is {ValueA[1], ValueB[""], ...},  `Match remaining values.`
-```
-
-### Variable Declaration
+### Declaration
 
 ```
 someRecord: recordName;  `Declare with all default values.`

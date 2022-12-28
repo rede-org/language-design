@@ -12,6 +12,21 @@ description: >-
 setName: {int}.
 ```
 
+## Accessing
+
+### Containment
+
+```
+// Some code
+```
+
+### Retrieving
+
+```
+someSet: {int}, {1, 2, 3};
+someSet(...) = {1, 2, 3};  // Total collection accessor.
+```
+
 ## Operators
 
 ### Count
@@ -31,6 +46,26 @@ setName: {int}.
 
 ```
 {2, 3, 4, 5} as {int} - {1, 2, 3} = {4, 5}
+```
+
+### Equality
+
+#### Setup
+
+```
+// Some code
+```
+
+#### Approximate
+
+```
+// Some code
+```
+
+#### Strict
+
+```
+// Some code
 ```
 
 ### Intersection

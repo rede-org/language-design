@@ -12,6 +12,51 @@ description: >-
 listName: {int*}.
 ```
 
+## Accessing
+
+### Containment
+
+```
+// Some code
+```
+
+### Retrieving
+
+```
+someList: {int*}, {1, 2, 3};
+someList(0) = 1
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList(0, 2) = {1, 3}
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList(-1) = {3}
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList!(0) = {2, 3}
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList(...) = {1, 2, 3}  // Total collection accessor.
+```
+
+### Setting
+
+```
+someList(0) is 1,
+```
+
+```
+someList(0, 2) is {1, 3},
+```
+
 ## Operators
 
 ### Count
@@ -34,28 +79,24 @@ listName: {int*}.
 {2, 3, 4, 5} - {1, 2, 3, 3} = {4, 5}
 ```
 
-### Indexing
+### Equality
 
-#### Retrieving
-
-```
-someList: {int*}, {1, 2, 3};
-someList(0) = 1
-```
+#### Setup
 
 ```
-someList: {int*}, {1, 2, 3};
-someList(0, 2) = {1, 3}
+// Some code
 ```
 
-#### Setting
+#### Approximate
 
 ```
-someList(0) is 1,
+// Some code
 ```
 
+#### Strict
+
 ```
-someList(0, 2) is {1, 3},
+// Some code
 ```
 
 ### Intersection

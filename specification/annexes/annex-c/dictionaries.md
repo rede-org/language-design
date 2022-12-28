@@ -12,6 +12,51 @@ description: >-
 dictName: {string: int, -1}.
 ```
 
+## Accessing
+
+### Containment
+
+```
+// Some code
+```
+
+### Retrieving
+
+```
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict("C") = -1
+```
+
+```
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict("A", "C") = {0, -1}
+```
+
+```
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict(ValueA["A"], ValueB["C"]) = {ValueA[0], ValueB[-1]}
+```
+
+```
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict(...) = {0, 1, -1}  // Total collection accessor.
+```
+
+```
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict(...[...]) = {"A"[0], "B"[1], "C"[-1]} // Total collection aliased accessor.
+```
+
+### Setting
+
+```
+someList("A") is 1,
+```
+
+```
+someList("A", "B") is {1, 3},
+```
+
 ## Operators
 
 ### Count
@@ -34,33 +79,24 @@ dictName: {string: int, -1}.
 {"A"[3], "B"[4], "C"[5]} - {"A"[0], "B"[1]} = {"C"[5]}
 ```
 
-### Indexing
+### Equality
 
-#### Retrieving
-
-```
-someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
-someDict("C") = -1
-```
+#### Setup
 
 ```
-someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
-someDict("A", "C") = {0, -1}
+// Some code
 ```
 
-```
-someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
-someDict(ValueA["A"], ValueB["C"]) = {ValueA[0], ValueB[-1]}
-```
-
-#### Setting
+#### Approximate
 
 ```
-someList("A") is 1,
+// Some code
 ```
 
+#### Strict
+
 ```
-someList("A", "B") is {1, 3},
+// Some code
 ```
 
 ### Intersection
