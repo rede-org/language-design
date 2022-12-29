@@ -112,27 +112,6 @@ someRecord(...) is {ValueA[1], ValueB[""], ...},  `Match remaining values.`
 
 ## Operators
 
-### Difference
-
-```
-someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
-otherRecord: {ValueA: int, 0;}, { };
-
-someRecord - otherRecord = {ValueB[2]}
-```
-
-```
-recordName:
-{
-    ValueA: int, 0;
-    ValueC: int -1;
-}.
-
-someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
-
-someRecord - recordName = {ValueB[2]}
-```
-
 ### Equality
 
 #### Setup
@@ -182,51 +161,8 @@ r = {ValueA[-1], ...},  `Match remaining values.`
 r(ValueA, ValueB) = {ValueA[-1], ValueB[""]},
 ```
 
-```
-r(ValueA, ValueB) = c(ValueA, ValueB),
-```
-
-### Intersection
-
-```
-someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
-otherRecord: {ValueA: int, 0;}, { };
-
-someRecord % otherRecord = {ValueA[-1]}
-```
-
-```
-recordName:
-{
-    ValueA: int, 0;
-    ValueC: int -1;
-}.
-
-someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
-
-someRecord % recordName = {ValueA[-1]}
-```
-
-### Union
-
-```
-someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
-otherRecord: {ValueA: int, 0; ValueC: int, 0;}, { };
-
-someRecord + otherRecord = {ValueA[-1], ValueB[2], ValueC[0]}
-```
-
-```
-recordName:
-{
-    ValueA: int, 0;
-    ValueC: int -1;
-}.
-
-someRecord: {ValueA: int, -1; ValueB: int;}, {ValueB[2]};
-
-someRecord + recordName = {ValueA[-1], ValueB[2], ValueC[-1]}
-```
+<pre><code><strong>r(ValueA, ValueB) = c(ValueA, ValueB),
+</strong></code></pre>
 
 ## Variables
 

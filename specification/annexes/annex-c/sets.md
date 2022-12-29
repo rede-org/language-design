@@ -60,25 +60,31 @@ someSet(...) = {1, 2, 3}  `Total collection accessor.`
 #### Setup
 
 ```
-// Some code
+`Assume the following for all equality code examples.`
+
+someSet: {int}, {1, 2, 3};
 ```
 
 #### Approximate
 
 ```
-// Some code
+someList: {int*}, {1, 2, 2, 3};
+someSet ~ someList
 ```
 
-#### Collective
-
 ```
-// Some code
+someDict: {int: int, -1}, {1[1], 2[1], 3[0]};
+someSet ~ someDict
 ```
 
 #### Strict
 
 ```
-// Some code
+someSet = {1, 2, 3}
+```
+
+```
+someSet = {1, 2, ...}  `Match remaining values.`
 ```
 
 ### Intersection

@@ -97,25 +97,31 @@ someList("A", "B") is {1, 3},
 #### Setup
 
 ```
-// Some code
+`Assume the following for all equality code examples.`
+
+someDict: {int: int, -1}, {1[1], 2[1], 3[0]};
 ```
 
 #### Approximate
 
 ```
-// Some code
+someList: {int*}, {1, 2, 2, 3};
+someDict ~ someList
 ```
 
-#### Collective
-
 ```
-// Some code
+someSet: {int}, {1, 2, 3};
+someDict ~ someSet
 ```
 
 #### Strict
 
 ```
-// Some code
+someDict = {1[1], 2[1], 3[0]}
+```
+
+```
+someDict = {1[1], 2[1], ...}  `Match remaining keys and their values.`
 ```
 
 ### Intersection

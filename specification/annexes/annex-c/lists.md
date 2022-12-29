@@ -102,25 +102,51 @@ someList(0, 2) is {1, 3},
 #### Setup
 
 ```
-// Some code
+`Assume the following for all equality code examples.`
+
+someList: {int*}, {1, 2, 2, 3};
 ```
 
 #### Approximate
 
 ```
-// Some code
+someSet: {int}, {1, 2, 3};
+someList ~ someSet
+```
+
+```
+someDict: {int: int, -1}, {1[1], 2[1], 3[0]};
+someList ~ someDict
 ```
 
 #### Collective
 
 ```
-// Some code
+{1, 1} &= 1
+```
+
+```
+{true, true} &= true
+{false, false} &= false
+```
+
+```
+someList |= 1
+```
+
+```
+{true, false} |= true
+{true, false} |= false
 ```
 
 #### Strict
 
 ```
-// Some code
+someList = {1, 2, 2, 3}
+```
+
+```
+someList = {1, 2, ...}  `Match remaining values.`
 ```
 
 ### Intersection
