@@ -16,15 +16,15 @@ enumName: [byte] A, B, C.
 enumName: [int] A[100], B[101], C[102]
 ```
 
-## Use
+## Variables
 
-### Variable Assignment
+### Assignment
 
 ```
 e is enumName(B),
 ```
 
-### Variable Declaration
+### Declaration
 
 ```
 e: enumName, A;
