@@ -17,7 +17,25 @@ dictName: {string: int, -1}.
 ### Containment
 
 ```
-// Some code
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict("A"?) = true
+someDict("D"?) = false
+```
+
+```
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict("A"?, "D"?) = {true, false}
+```
+
+```
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict("A" ? -1) = 0
+someDict("D" ? -1) = -1
+```
+
+```
+someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
+someDict("A" ? -1, "D" ? -1) = {0, -1}
 ```
 
 ### Retrieving
@@ -40,11 +58,6 @@ someDict(ValueA["A"], ValueB["C"]) = {ValueA[0], ValueB[-1]}
 ```
 someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
 someDict(...) = {0, 1, -1}  // Total collection accessor.
-```
-
-```
-someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
-someDict(...[...]) = {"A"[0], "B"[1], "C"[-1]} // Total collection aliased accessor.
 ```
 
 ### Setting
@@ -88,6 +101,12 @@ someList("A", "B") is {1, 3},
 ```
 
 #### Approximate
+
+```
+// Some code
+```
+
+#### Collective
 
 ```
 // Some code

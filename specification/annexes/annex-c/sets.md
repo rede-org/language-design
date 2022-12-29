@@ -17,14 +17,21 @@ setName: {int}.
 ### Containment
 
 ```
-// Some code
+someSet: {int}, {1, 2, 3};
+someSet(1?) = true
+someSet(4?) = false
+```
+
+```
+someSet: {int}, {1, 2, 3};
+someSet(1?, 4?) = {true, false}
 ```
 
 ### Retrieving
 
 ```
 someSet: {int}, {1, 2, 3};
-someSet(...) = {1, 2, 3};  // Total collection accessor.
+someSet(...) = {1, 2, 3}  `Total collection accessor.`
 ```
 
 ## Operators
@@ -57,6 +64,12 @@ someSet(...) = {1, 2, 3};  // Total collection accessor.
 ```
 
 #### Approximate
+
+```
+// Some code
+```
+
+#### Collective
 
 ```
 // Some code

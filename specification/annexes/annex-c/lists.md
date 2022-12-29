@@ -17,7 +17,25 @@ listName: {int*}.
 ### Containment
 
 ```
-// Some code
+someList: {int*}, {1, 2, 3};
+someList(0?) = true    `The index 0 has a value in the list.`
+somneList(3?) = false  `The index 3 does not have a value in the list.`
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList(0?, 3?) = {true, false}  `Per whether the indices have values in the list.`
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList(0 ? -1) = 1
+someList(3 ? -1) = -1
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList(0 ? -1, 3 ? -1) = {1, -1}
 ```
 
 ### Retrieving
@@ -44,7 +62,7 @@ someList!(0) = {2, 3}
 
 ```
 someList: {int*}, {1, 2, 3};
-someList(...) = {1, 2, 3}  // Total collection accessor.
+someList(...) = {1, 2, 3}  `Total collection accessor.`
 ```
 
 ### Setting
@@ -88,6 +106,12 @@ someList(0, 2) is {1, 3},
 ```
 
 #### Approximate
+
+```
+// Some code
+```
+
+#### Collective
 
 ```
 // Some code

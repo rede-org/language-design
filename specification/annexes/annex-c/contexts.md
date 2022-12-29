@@ -51,12 +51,6 @@ contextName: context  `Binds two hosts' values through a value.`
     ValueA[HostA(SomeFloat), HostB(OtherFloat), 3.0].
 ```
 
-### Based on a Context
-
-<pre><code><strong>otherContextName: context(contextName]  `Only inherits values/qualifiers, not use.`
-</strong>    AdditionalValue: int, -1.
-</code></pre>
-
 ### Based on a Record
 
 ```
@@ -92,99 +86,9 @@ contextName: context
     QualifierB: Value < ValueB(A).
 ```
 
-```
-otherContextName: context[contextName]
-    QualifierA: ValueA > ConstantA
-```
+## Use
 
-## Accessing
-
-### Setup
-
-```
-`Assume the following for all accessing code examples.`
-
-contextName: context
-    ValueA: int, -1;
-    ValueB: string, "";
-    ValueC: float, 0.0;
-    ValueD: int, -1;
-    ValueE: bool, false.
-
-someContext: contextName;
-```
-
-### Retrieving
-
-```
-someContext(ValueA) = -1
-```
-
-```
-someContext(ValueA, ValueB) = {-1, ""}
-```
-
-```
-someContext!(ValueA, ValueB) = {0.0, -1, false}
-```
-
-```
-someContext(...) = {-1, "", 0.0, =1, false}
-```
-
-### Setting
-
-```
-someContext(ValueA) is 2,
-```
-
-```
-someContext(ValueA, ValueB) is otherContext(ValueA, ValueB),
-```
-
-```
-someContext(ValueA, ValueB) is otherContext(ValueA[ValueC], ValueB[ValueD]),
-```
-
-```
-someContext!(ValueA, ValueB) is {ValueC[3.5], ValueD[0], ValueE[true]},
-```
-
-```
-someContext!(ValueA, ValueB) is {ValueC[3.5], ...},  `Match remaining values.`
-```
-
-```
-someContext(...) is matchingContext,
-```
-
-```
-someContext(...) is matchingRecord,  `Assign all value.`
-```
-
-```
-someContext(...) is someRecord with contextMapping,
-```
-
-```
-someContext(...) is someRecord where
-{
-    ValueA is RecordValueA,
-    ValueB is RecordValueB
-},
-```
-
-```
-someContext(...) is {ValueA[1], ValueB[""], ...},  `Match remaining values.`
-```
-
-## Operators
-
-```
-someContext(ValueA, ValueB) is {ValueA[1], ValueB[""]},
-```
-
-### Await
+### Awaiting
 
 ```
 await someContext,
@@ -270,9 +174,53 @@ register someContext: contextName, {ValueA[1], ValueB[""]};
 `All other declaration methods can also be used.`
 ```
 
-## Variables
+### Value Assignment
 
-### Declaration
+```
+someContext(ValueA) is 2,
+```
+
+```
+someContext(ValueA, ValueB) is {ValueA[1], ValueB[""]},
+```
+
+```
+someContext(ValueA, ValueB) is otherContext(ValueA, ValueB),
+```
+
+```
+someContext(ValueA, ValueB) is otherContext(ValueA[ValueC], ValueB[ValueD]),
+```
+
+```
+someContext~(ValueA, ValueB) is {ValueC[3.5], ValueD[0], ValueE[true]},
+```
+
+```
+someContext~(ValueA, ValueB) is {ValueC[3.5], ...},  `Match remaining values.`
+```
+
+```
+someContext(...) is matchingRecord,  `Assign all value.`
+```
+
+```
+someContext(...) is someRecord with contextMapping,
+```
+
+```
+someContext(...) is someRecord where
+{
+    ValueA is RecordValueA,
+    ValueB is RecordValueB
+},
+```
+
+```
+someContext(...) is {ValueA[1], ValueB[""], ...},  `Match remaining values.`
+```
+
+### Variable Declaration
 
 ```
 someContext: contextName;  `Declare with all default values.`
@@ -283,15 +231,15 @@ someContext: genericContextName(int); `Declare with all default values.`
 ```
 
 ```
-someContext: contextName, {ValueA[1], ValueB[""]};  `Default unspecified values.`
+someContext: contextName, {ValueA[1], ValueB[""]};
+```
+
+```
+someContext: contextName, {ValueA[1], ValueB[""], ...};  `Default other values.`
 ```
 
 ```
 someContext: genericContextName(int), {GenericValueA[1], NonGenericValueA[""]};
-```
-
-```
-someContext: contextName, matchingContext;
 ```
 
 ```
