@@ -1,110 +1,49 @@
 ---
 description: >-
-  The following code examples demonstrate how sets can be declared and used. See
-  section [TBD] for details.
+  The following code examples demonstrate how awaitables can be declared and
+  used. See section [TBD] for details.
 ---
 
-# Sets
+# Awaitables
 
 ## Type Declaration
 
 ```
-setName: {int}.
-```
-
-## Accessing
-
-### Containment
-
-```
-someSet: {int}, {1, 2, 3};
-someSet(1?) = true
-someSet(4?) = false
+awaitableName: <contextNameA, contextNameB>.
 ```
 
 ```
-someSet: {int}, {1, 2, 3};
-someSet(1?, 4?) = {true, false}
-```
-
-### Retrieving
-
-```
-someSet: {int}, {1, 2, 3};
-someSet(...) = {1, 2, 3}  `Total collection accessor.`
+awaitableName: <contextNameA, otherAwaitableName>.
 ```
 
 ## Operators
 
-### Count
+### Await
 
 ```
-|{1, 2, 3} as {int}| = 3
+await someAwaitable,
 ```
 
 ```
-|someSet| = 5
+await <someContext, someAwaitable>,
 ```
 
 ### Difference (Remove Elements)
 
-<pre><code><strong>{1, 2, 3} as {int} - {2, 3, 4, 5} = {1}
-</strong></code></pre>
-
 ```
-{2, 3, 4, 5} as {int} - {1, 2, 3} = {4, 5}
-```
-
-### Equality
-
-#### Setup
-
-```
-`Assume the following for all equality code examples.`
-
-someSet: {int}, {1, 2, 3};
-```
-
-#### Approximate
-
-```
-someList: {int*}, {1, 2, 2, 3};
-someSet ~ someList
-```
-
-```
-someDict: {int: int, -1}, {1[1], 2[1], 3[0]};
-someSet ~ someDict
-```
-
-#### Strict
-
-```
-someSet = {1, 2, 3}
-```
-
-```
-someSet = {1, 2, ...}  `Match remaining values.`
+<contextA, contextB> - <contextB, contextC> = <contextA>
 ```
 
 ### Intersection
 
 ```
-{1, 2, 3} as {int} % {2, 3, 4, 5} = {2, 3}
-```
-
-```
-{2, 3, 4, 5} as {int} % {1, 2, 3, 3} = {2, 3}
+<contextA, contextB> % <contextB, contextC> = <contextB>
 ```
 
 ### Union (Appending)
 
 ```
-{1, 2} as {int} + {2, 3} = {1, 2, 3}
-```
-
-```
-{2, 3} as {int} + {1, 2} = {2, 3, 1}
+<contextA, contextB> + <contextB, contextC> = <contextA, contextB, contextC>
 ```
 
 ## Variables
@@ -112,27 +51,31 @@ someSet = {1, 2, ...}  `Match remaining values.`
 ### Assignment
 
 ```
-someSet is {1, 2, 3},
+someAwaitable is <contextA, contextB>,
 ```
 
 ```
-someSet is setA + setB,
+someAwaitable is <contextA, contextB> + <contextB, contextC>,
+```
+
+```
+someNestedAwaitable is <contextA, <contextB, contextC>>
 ```
 
 ### Declaration
 
 ```
-someSet: {int}, {1, 2, 3};
+someAwaitable: awaitableName, <contextA, contextB>;
 ```
 
 ```
-someSet: var, otherSet;  `Set type determined by initialization value.`
+someAwaitable: var, <contextA, contextB>;  `Type determined by initialization value.`
 ```
 
 ```
-someSet: setName, {1, 2, 3};
+someAwaitable: nameA + nameB, <contextA, contextB> + <contextB, contextC>;
 ```
 
 ```
-someSet: {int}, setA + setB;
+someNestedAwaitable: var, <contextA, someAwaitable>;
 ```
