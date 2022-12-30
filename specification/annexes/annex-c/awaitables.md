@@ -6,16 +6,6 @@ description: >-
 
 # Awaitables
 
-## Type Declaration
-
-```
-awaitableName: <contextNameA, contextNameB>.
-```
-
-```
-awaitableName: <contextNameA, otherAwaitableName>.
-```
-
 ## Operators
 
 ### Await
@@ -65,17 +55,13 @@ someNestedAwaitable is <contextA, <contextB, contextC>>
 ### Declaration
 
 ```
-someAwaitable: awaitableName, <contextA, contextB>;
+someAwaitable: awaitable, <contextA, contextB>;
 ```
 
 ```
-someAwaitable: var, <contextA, contextB>;  `Type determined by initialization value.`
+someAwaitable: awaitable, <contextA, contextB> + <contextB, contextC>;
 ```
 
 ```
-someAwaitable: nameA + nameB, <contextA, contextB> + <contextB, contextC>;
-```
-
-```
-someNestedAwaitable: var, <contextA, someAwaitable>;
+someNestedAwaitable: awaitable, <contextA, someAwaitable>;
 ```

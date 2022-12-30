@@ -12,7 +12,7 @@
 * [Annex B - Symbols and Keywords](annexes/annex-b/README.md)
 * [Annex C - Code Examples](annexes/annex-c/README.md)
   * [Aliases](annexes/annex-c/aliasing.md)
-  * [Awaitables](<annexes/annex-c/sets (1).md>)
+  * [Awaitables](annexes/annex-c/awaitables.md)
   * [Comments](annexes/annex-c/comments.md)
   * [Contexts](annexes/annex-c/contexts.md)
   * [Crashes](annexes/annex-c/crashes.md)
