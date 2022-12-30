@@ -13,7 +13,7 @@ enumName: [byte] A, B, C.
 ```
 
 ```
-enumName: [int] A[100], B[101], C[102]
+enumName: [int] A[100], B[101], C[102].
 ```
 
 ## Variables

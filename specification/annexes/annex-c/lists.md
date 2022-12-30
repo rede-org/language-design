@@ -38,6 +38,16 @@ someList: {int*}, {1, 2, 3};
 someList(0 ? -1, 3 ? -1) = {1, -1}
 ```
 
+```
+someList: {int*}, {1, 2, 3};
+someList([1, 4)?) = {true, true, false}
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList([1, 4) ? -1) = {2, 3, -1}
+```
+
 ### Retrieving
 
 ```
@@ -65,6 +75,16 @@ someList: {int*}, {1, 2, 3};
 someList(...) = {1, 2, 3}  `Total collection accessor.`
 ```
 
+```
+someList: {int*}, {1, 2, 3};
+someList((0, 2]) = {2, 3}
+```
+
+```
+someList: {int*}, {1, 2, 3};
+someList!((0, 2]) = {1}
+```
+
 ### Setting
 
 ```
@@ -73,6 +93,10 @@ someList(0) is 1,
 
 ```
 someList(0, 2) is {1, 3},
+```
+
+```
+someList([1, 4]) = {1, 3, 4, 2},
 ```
 
 ## Operators
@@ -123,6 +147,7 @@ someList ~ someDict
 
 ```
 {1, 1} &= 1
+{1, 2, 2, 1} &= {1, 2}
 ```
 
 ```
@@ -132,6 +157,7 @@ someList ~ someDict
 
 ```
 someList |= 1
+someList |= {1, 3}
 ```
 
 ```

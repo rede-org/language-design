@@ -18,43 +18,24 @@ dictName: {string: int, -1}.
 
 ```
 someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
-
 someDict("A"?) = true
 someDict("D"?) = false
 ```
 
 ```
 someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
-
 someDict("A"?, "D"?) = {true, false}
 ```
 
 ```
 someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
-
 someDict("A" ? -1) = 0
 someDict("D" ? -1) = -1
 ```
 
 ```
 someDict: {string: int, -1}, {"A"[0], "B"[1], "C"};
-
 someDict("A" ? -1, "D" ? -1) = {0, -1}
-```
-
-```
-someDict: {string: int, 0}, {"A"[1], "B"[2], "C"};
-keys: {string}, {"A", "B", "C", "D"}
-
-someList: {int*}, someDict(keys(...) ? -1);  `Provide default for any key not found.`
-someList = {1, 2, 0, -1}
-```
-
-```
-someDict: {string: int, 0}, {"A"[1], "B"[2], "C"};
-
-someRecord: var, someDict(ValueA["A" ? -1], ValueD["D" ? -1]);
-someRecord = {ValueA[1], ValueD[-1]}
 ```
 
 ### Retrieving
