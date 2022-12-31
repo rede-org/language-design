@@ -191,11 +191,11 @@ await someContext,
 ```
 
 ```
-await <someContext, otherContext>,
+await someContext with otherContext,
 ```
 
 ```
-await <someContext as contextAlias, otherContext>,
+await someContext as contextAlias with otherContext,
 ```
 
 ### Deregistration
