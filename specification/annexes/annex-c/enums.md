@@ -16,6 +16,32 @@ enumName: [byte] A, B, C.
 enumName: [int] A[100], B[101], C[102].
 ```
 
+## Equality
+
+```
+enumName: [int] A[100], B[101], C[102].
+enumName(A) = enumName(A)
+```
+
+```
+enumName: [int] A[100], B[101], C[102].
+enumName(A) = 100
+```
+
+```
+enumName: [int] A[100], B[101], C[102].
+
+e: enumName, A;
+e = enumName(A)
+```
+
+```
+enumName: [int] A[100], B[101], C[102].
+
+e: enumName, A;
+e = 100
+```
+
 ## Variables
 
 ### Assignment
