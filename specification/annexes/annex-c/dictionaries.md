@@ -206,7 +206,3 @@ someDict: dictName, {"A"[0], "B"[1], "C"[2]};
 ```
 someDict: {string: int, -1}, dictA + dictB;
 ```
-
-```
-someDict: {string, int, -1}, someList;  `Unique list values become keys, -1 values.`
-```
