@@ -264,7 +264,14 @@ register someContext,
 ```
 
 ```
-`Declare and register the variable.`
+`Register a new context.`
+register contextName, {ValueA[1], ValueB[""]};
+
+`All other declaration methods can also be used.`
+```
+
+```
+`Declare and register a new context.`
 register someContext: contextName, {ValueA[1], ValueB[""]};
 
 `All other declaration methods can also be used.`

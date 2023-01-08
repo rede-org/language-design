@@ -7,12 +7,12 @@ description: >-
 # Hello World
 
 ```
-operationName: operation<ConsoleOutput output> when initialized?
-    output.Messages is output.Messages + "Hello World!".
+operationName: operation when initialized?
+    register ConsoleOutput, {Messages["Hello World!"]}.
 ```
 
 ```
 `Operation name is optional.`
-operation<ConsoleOutput output> when initialized?
-    output.Messages is output.Messages + "Hello World!".
+operation when initialized?
+    register ConsoleOutput, {Messages["Hello World!"]}.
 ```
