@@ -159,9 +159,10 @@ someDict = {1[1], 2[1], ...}  `Match remaining keys and their values.`
 
 ### Union (Appending)
 
-<pre><code><strong>`Default int value is assigned to "D" through the union.`
-</strong><strong>{"A"[0], "B"[1], "C"[2]} + {"A", "D"} = {"A"[0], "B"[1], "C"[2]. "D"[0]}
-</strong></code></pre>
+```
+`Default int value is assigned to "D" through the union.`
+{"A"[0], "B"[1], "C"[2]} + {"A", "D"} = {"A"[0], "B"[1], "C"[2]. "D"[0]}
+```
 
 ```
 someDict: {string: int, -1}, {"A"[0], "B"[1], "C"[2]};

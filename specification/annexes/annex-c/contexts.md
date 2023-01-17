@@ -53,9 +53,10 @@ contextName: context  `Binds two hosts' values through a value.`
 
 ### Based on a Context
 
-<pre><code><strong>otherContextName: context(contextName]  `Only inherits values/qualifiers, not use.`
-</strong>    AdditionalValue: int, -1.
-</code></pre>
+```
+otherContextName: context[contextName]  `Only inherits values/qualifiers, not use.`
+    AdditionalValue: int, -1.
+```
 
 ### Based on a Record
 
