@@ -26,3 +26,4 @@
 * [Annex D - Program Examples](annexes/annex-d-program-examples/README.md)
   * [Hello World](annexes/annex-d-program-examples/hello-world.md)
   * [Deserialization](annexes/annex-d-program-examples/deserialization.md)
+  * [Serialization](annexes/annex-d-program-examples/serialization.md)

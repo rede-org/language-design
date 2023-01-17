@@ -32,7 +32,7 @@ This is a [context](../annex-c/contexts.md) wrapping a [dictionary](../annex-c/d
 
 ## Define Aliases
 
-An [alias](../annex-c/aliasing.md) is defined for FormattedSerializedText, so that the expected operations to be performed to FormattedSerializedText in this specific situation can better defined.
+An [alias](../annex-c/aliasing.md) is defined for FormattedSerializedText, so that the expected operations to be performed for FormattedSerializedText in this specific situation can better defined.
 
 ```
 UnprocessedSerializedContexts: [FormattedSerializedText] ...
