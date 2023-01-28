@@ -73,6 +73,21 @@ contextName(TValue): context
     ValueB: genericRecordName(TValue).
 ```
 
+### With Cast Overrides
+
+```
+contextName: context
+    ValueA: int, -1;
+    ValueB: recordName, {A[1]};
+    
+    this to int => ValueA + ValueB(A);
+    this from int i =>
+    {
+        ValueA[i],
+        ValueB[{A[0]}]
+    }.
+```
+
 ### With In-lined Value Aliasing
 
 ```
@@ -82,6 +97,24 @@ contextName: context
     ValueAliasB[ValueB(B)].
 ```
 
+### With Operator Overrides
+
+```
+contextName: context
+    ValueA: int, -1;
+    ValueB: recordName, {A[1]};
+    
+    this + int i =>
+    {
+        ValueA[ValueA + i]
+    };
+    -this =>
+    {
+        ValueA[-ValueA],
+        ValueB[-ValueB]
+    }.
+```
+
 ### With Qualifiers
 
 ```
@@ -89,13 +122,13 @@ contextName: context
     ConstantA: const int, 0;
     ValueA: int, -1;
     ValueB: recordName, {A[1]};
-    QualifierA: ValueA > ConstantA;
-    QualifierB: Value < ValueB(A).
+    this is in range => ValueA > ConstantA;
+    this matches int i => ValueA = i.
 ```
 
 ```
 otherContextName: context[contextName]
-    QualifierA: ValueA > ConstantA
+    this completely matches int i => ValueA + ValueB(A) = i.
 ```
 
 ## Accessing

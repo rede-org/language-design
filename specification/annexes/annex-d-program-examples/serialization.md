@@ -28,7 +28,7 @@ This is a [context](../annex-c/contexts.md) representing the text read from a fi
 
 #### FormattedSerializedText
 
-This is a [record ](../annex-c/records.md)wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
+This is a [record](../annex-c/records.md) wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
 
 ## Define Serialization Contexts
 
@@ -146,6 +146,9 @@ ContextB: context
     ValueA: int, 0;
     ValueB: bool, false;
     
-    this to FormattedSerializedText => "ContextB: {ValueA: " + ValueA + "}".
+    this to FormattedSerializedText => 
+    {
+        "ContextB"[ValueA to FormattedSerialization]
+    }.
 ```
 

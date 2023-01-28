@@ -32,7 +32,7 @@ This is a [context](../annex-c/contexts.md) wrapping a [dictionary](../annex-c/d
 
 ## Define Aliases
 
-An [context](../annex-c/contexts.md) is defined as a wrapper for FormattedSerializedText, so that FormattedSerializedText can be used by operations through aliasing to this context. A qualifier is also defined within the context, to make an expected operation conditional more readable.
+A [context](../annex-c/contexts.md) is defined as a wrapper for FormattedSerializedText, so that FormattedSerializedText can be used by operations through aliasing to this context. A qualifier is also defined within the context, to make an expected operation conditional more readable.
 
 ```
 UnprocessedSerializedContexts: context[FormattedSerializedText].

@@ -29,6 +29,24 @@ recordName(TValue):
 }.
 ```
 
+### With Cast Overrides
+
+```
+recordName: 
+{
+    SomeConstant: const int, 2;
+    ValueA: int, -1;
+    ValueB: otherRecordName, {A[1]};
+    
+    this to int => ValueA + ValueB(A);
+    this from int i =>
+    {
+        ValueA[i],
+        ValueB[{A[0]}]
+    };
+}.
+```
+
 ### With In-lined Value Aliasing
 
 ```
@@ -37,6 +55,41 @@ recordName:
     ValueA: recordName;
     ValueAliasA[ValueA(A)],
     ValueAliasB[ValueB(B)]
+}.
+```
+
+### With Operator Overrides
+
+```
+recordName: 
+{
+    SomeConstant: const int, 2;
+    ValueA: int, -1;
+    ValueB: otherRecordName, {A[1]};
+    
+    this + int i =>
+    {
+        ValueA[ValueA + i]
+    };
+    -this =>
+    {
+        ValueA[-ValueA],
+        ValueB[-ValueB]
+    };
+}.
+```
+
+### With Qualifiers
+
+```
+recordName: 
+{
+    SomeConstant: const int, 2;
+    ValueA: int, -1;
+    ValueB: otherRecordName, {A[1]};
+    
+    this is in range => ValueA > ConstantA;
+    this matches int i => ValueA = i;
 }.
 ```
 
