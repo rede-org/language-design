@@ -32,10 +32,10 @@ This is a [context](../annex-c/contexts.md) wrapping a [dictionary](../annex-c/d
 
 ## Define Aliases
 
-An [alias](../annex-c/aliasing.md) is defined for FormattedSerializedText, so that the expected operations to be performed for FormattedSerializedText in this specific situation can better defined.
+An [context](../annex-c/contexts.md) is defined as a wrapper for FormattedSerializedText, so that FormattedSerializedText can be used by operations through aliasing to this context. A qualifier is also defined within the context, to make an expected operation conditional more readable.
 
 ```
-UnprocessedSerializedContexts: [FormattedSerializedText] ...
+UnprocessedSerializedContexts: context[FormattedSerializedText].
 ```
 
 ## Startup Operation
@@ -53,17 +53,17 @@ main: operation when initialized?
 
 ## Deserialization Operation
 
-This operation picks up where the startup operation left off by processing the UnprocessedSerializedContexts. It does so by operating on each serialized type (each key) of the provided serialized contexts, so long as the data associated with the key has content; that the size of the nested FormattedSerializedText is not zero.
+This operation picks up where the startup operation left off by processing the UnprocessedSerializedContexts. It does so by operating on each serialized type (each key) of the provided serialized contexts.
 
-For qualifying types, a context of the type identified by the string is created with data defined by the FormattedSerializedTexts associated with that type. As with anonymous records, FormattedSerializedTexts or any variation of a dictionary with string keys can be implicitly cast to an instance of a context or record.
+For each type, a context of the type identified by the string is created with data defined by the FormattedSerializedTexts associated with that type. As with anonymous records, FormattedSerializedTexts or any variation of a dictionary with string keys can be implicitly cast to an instance of a context or record.
 
 Finally, the newly declared context is registered. This enables any behaviors dependent on such contexts to initialize and begin their operations, effectively defining the state and current functionality of the application from the loaded data.
 
 ```
 processSerializedContexts: operation<UnprocessedSerializedContexts contexts>
-    foreach string type in contexts,
-    when |contexts(type)| > 0?
+    foreach string t in contexts,
+    when t is valid context?
     
-    deserializedContext: type, contexts(type);
+    deserializedContext: t, contexts(t);
     register deserializedContext.
 ```

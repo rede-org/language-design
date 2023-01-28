@@ -28,14 +28,18 @@ This is a [context](../annex-c/contexts.md) representing the text read from a fi
 
 #### FormattedSerializedText
 
-This is a [context](../annex-c/contexts.md) wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
+This is a [record ](../annex-c/records.md)wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
 
-## Define Aliases
+## Define Serialization Contexts
 
-An [alias](../annex-c/aliasing.md) is defined for FormattedSerializedText, so that the expected operations to be performed for FormattedSerializedText in this specific situation can better defined.
+Contexts that encapsulate FormattedSerializedTexts are defined to enable the manipulation of such data through operations.
 
 ```
-SerializedContexts: [FormattedSerializedText] ...
+SerializedContext: context
+	Context: FormattedSerializedText.
+
+SerializedContexts: context
+	Contexts: FormattedSerializedText.
 ```
 
 ## Define a Serializable Abstraction
@@ -99,13 +103,13 @@ This behavior defines an operation that occurs whenever the application is in a 
 
 ```
 saveContexts: operation with appState,
-    whenever appState(ShouldSave) = true?
+    whenever appState(ShouldSave)?
     
     serialization: SerializedContexts;
     await serialization,
     
-    await <"serialized.data" as FileToWrite, serialization to FileText>.
-    appState(ShouldSave) = false;
+    await <"serialized.data" as FileToWrite, serialization(Contexts) to FileText>.
+    appState(ShouldSave) is false;
 ```
 
 This behavior also defines the operation that serializes the contexts. This operation is performed for each Serializable context known to the behavior, and for each context obtained from each Serializable through a mutualistic relationship. This is how the abstraction is reified as an actual serializable context, although the specific type of each context is not known to this operation. However, by initiating operations upon these contexts, the operations that are bound to the explicit typing of those contexts can occur and will be able to act upon such contexts with full knowledge of their typing.
@@ -117,22 +121,31 @@ serializeContexts: operation<SerializedContexts serialization> with serializable
     foreach var serializable in serializables,
     foreach var context from serializable?
     
-    serializedContext: FormattedSerializedText;
+    serializedContext: SerializedContext;
     await <context, serializedContext> or 
-        serializedContext is context to FormattedSerializedText,
+        serializedContext(Context) is (context to FormattedSerializedText),
     
-    serialization is serialization + serializedContext.
+    serialization(Contexts) is serialization(Contexts) + serializedContext(Context).
 ```
 
 ## Custom Serialization
 
-Lastly, a global operation to perform custom serialization for the defined ContextB is defined. This operation serves to override the default cast to a FormattedSerializedText, as is used in the previously defined behavior's operation. The functionality performed is simply to append a custom string format of a ContextB to the in-progress FormattedSerializedText.
+Lastly, a global operation to perform custom serialization for the defined ContextB is defined. This operation serves to override the default cast to a FormattedSerializedText, as is used in the previously defined behavior's operation. The functionality performed is simply to assign a custom string format of a ContextB to the in-progress FormattedSerializedText.
 
 ```
-serializeContextB: operation<ContextB context, 
-    FormattedSerializedText serializedContext>?
+serializeContextB: operation<ContextB context, SerializedContext serializedContext>?
+    serializedContext(Context) is "ContextB: {ValueA: " + context(ValueA) + "}".
+```
+
+This custom serialization could have been similarly achieved by defining a cast override for the ContextB context, as in the folllowing.
+
+```
+ContextB: context
+    Serializable: host Serializable;
     
-    serializedContext is serializedContext + 
-        ("ContextB: {ValueA: " + context(ValueA) + "}").
+    ValueA: int, 0;
+    ValueB: bool, false;
+    
+    this to FormattedSerializedText => "ContextB: {ValueA: " + ValueA + "}".
 ```
 
