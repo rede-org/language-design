@@ -1,0 +1,12 @@
+`
+ Create a user interface for dealing with 
+ the public rest API detailed at:
+ https://dog.ceo/dog-api/documentation
+
+ The app should allow the user to view a 
+ list of available breeds and drill down
+ into the details of each.
+
+ The app should be a simple console app
+ with a menu-style interface
+`
