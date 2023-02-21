@@ -24,11 +24,11 @@ This is an [alias](../annex-c/aliasing.md) for a string, essentially enabling a 
 
 #### FileText
 
-This is a [context](../annex-c/contexts.md) representing the text read from a file.
+This is a [context](broken-reference) representing the text read from a file.
 
 #### FormattedSerializedText
 
-This is a [record](../annex-c/records.md) wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
+This is a [record](broken-reference) wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
 
 ## Define Serialization Contexts
 
@@ -44,7 +44,7 @@ SerializedContexts: context
 
 ## Define a Serializable Abstraction
 
-There needs to be an abstraction of the serializable [contexts](../annex-c/contexts.md) to enable a behavior to indirectly reference them. This should be a context, but it doesn't need to have any actual data.
+There needs to be an abstraction of the serializable [contexts](broken-reference) to enable a behavior to indirectly reference them. This should be a context, but it doesn't need to have any actual data.
 
 ```
 Serializable: context.
@@ -52,7 +52,7 @@ Serializable: context.
 
 ## Define Serializable Contexts
 
-The [contexts](../annex-c/contexts.md) that should be serialized must also be defined. Through mutualism, these contexts can be represented by the previously defined Serializable abstraction.
+The [contexts](broken-reference) that should be serialized must also be defined. Through mutualism, these contexts can be represented by the previously defined Serializable abstraction.
 
 ```
 ContextA: context
@@ -70,7 +70,7 @@ ContextB: context
 
 ## Define Application State
 
-The application may want to serialize and write the serializable contexts when it is in a specific save state. There needs to be a [context](../annex-c/contexts.md) to represent application state, to be able to track whether the application should save.
+The application may want to serialize and write the serializable contexts when it is in a specific save state. There needs to be a [context](broken-reference) to represent application state, to be able to track whether the application should save.
 
 ```
 AppState: context
@@ -79,7 +79,7 @@ AppState: context
 
 ## Startup Operation
 
-The operation that runs when the program initializes immediately creates/registers the application state (as the AppState [context](../annex-c/contexts.md)) and then it creates/registers the serializable contexts used in this example. For the purposes of this example, it then updates the AppState to be in a state where it should save.
+The operation that runs when the program initializes immediately creates/registers the application state (as the AppState [context](broken-reference)) and then it creates/registers the serializable contexts used in this example. For the purposes of this example, it then updates the AppState to be in a state where it should save.
 
 ```
 main: operation when initialized?
@@ -93,7 +93,7 @@ main: operation when initialized?
 
 ## Handling Saving (Serialization and Writing)
 
-A behavior is defined to track the state of the application, as well as all serializable [contexts](../annex-c/contexts.md).
+A behavior is defined to track the state of the application, as well as all serializable [contexts](broken-reference).
 
 ```
 appSaveHandling: behavior<AppState appState, {*Serializable*} serializables>

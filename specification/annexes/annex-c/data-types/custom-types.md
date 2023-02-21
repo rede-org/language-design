@@ -41,6 +41,14 @@ Generic Record (TValue):
         Other Value: Bool[false];
     }.
 ```
+
+```
+`Declare an anonymous type, as part of the variable declaration for a 
+variable called "record", to encapsulate a couple of values 
+as a single data type.`
+
+record: {A: int[-1]; B: int;}, {B[2]};
+```
 {% endtab %}
 
 {% tab title="Constant" %}
@@ -246,20 +254,327 @@ Some Record:
 
 ## Accessing
 
-...
+### Setup
+
+```
+`Assume the following for all accessing code examples.`
+
+Record Name: 
+    {
+        A: int[-1];
+        B: int[0];
+    }.
+
+some record: Record Name, {B[2]};
+```
+
+### Retrieving
+
+```
+some record (A) = -1
+```
+
+```
+some record (A, B) = {-1, 2}
+```
+
+```
+some record (...) = {-1, 2}
+```
+
+```
+some record !(A) = 2
+```
+
+### Setting
+
+```
+some record (A) is 2,
+```
+
+```
+some record (A, B) is {A[1], B[""]},
+```
+
+```
+some record (A, B) is other record (A, B),
+```
+
+```
+some record (A, B) is other record (A[C], B[D]),
+```
+
+```
+some record !(A) is {B[3]},
+```
+
+```
+some record !(A) is {...},  `Match remaining values.`
+```
+
+```
+some record (...) is matching record,  `Assign all values.`
+```
+
+```
+some record (...) is other record with record mapping,
+```
+
+```
+some record (...) is other record where
+{
+    A is OtherA,
+    B is OtherB
+},
+```
+
+```
+some record (...) is {A[1], ...},  `Match remaining values.`
+```
 
 ## Operators
 
 {% tabs %}
-{% tab title="All Data Types" %}
+{% tab title="Basic Types" %}
+By default, a custom type that wraps an existing type inherits the operators of the existing type, including those of [built-in types](built-in-types.md). Operators declared in the declaration of a type override any matching inherited operator.
+{% endtab %}
 
+{% tab title="Composite/Context Types" %}
+### Difference
+
+```
+some record: {A: int[-1]; B: int;}, {B[2]};
+other record: {A: int, 0;}, { };
+
+some record - other record = {B[2]}
+```
+
+```
+Record Name:
+{
+    A: int[0];
+    C: int[-1];
+}.
+
+some record: {A: int[-1]; B: int;}, {B[2]};
+
+some record - Record Name = {B[2]}
+```
+
+### Equality
+
+#### Setup
+
+```
+`Assume the following for all equality code examples.`
+
+Context Name: context
+    {
+        A: int[-1];
+        B: string[""];
+    }.
+
+Record Name:
+    {
+        A: int[-1];
+        B: string[""];
+    }.
+
+c: Context Name;
+r: Record Name;
+```
+
+#### Approximate
+
+```
+r ~ {A[-1]},
+```
+
+```
+r (A, B) ~ c (B),
+```
+
+#### Strict
+
+```
+r = c,
+```
+
+```
+r = {A[-1], B[""]},
+```
+
+```
+r = {A[-1], ...},  `Match remaining values.`
+```
+
+```
+r (A, B) = {A[-1], B[""]},
+```
+
+```
+r (A, B) = c (A, B),
+```
+
+### Intersection
+
+```
+some record: {A: int[-1]; B: int;}, {B[2]};
+other record: {A: int[0];}, { };
+
+some record % other record = {A[-1]}
+```
+
+```
+Record Name:
+{
+    A: int, 0;
+    C: int -1;
+}.
+
+some record: {A: int[-1]; B: int;};
+
+some record % Record Name = {A[-1]}
+```
+
+### Union
+
+```
+some record: {A: int[-1]; B: int[0];}, {B[2]};
+other record: {A: int[0]; C: int[0];}, { };
+
+some record + other record = {A[-1], B[2], C[0]}
+```
+
+```
+Record Name:
+{
+    A: int[0];
+    C: int[-1];
+}.
+
+some record: {A: int[-1]; B: int;}, {B[2]};
+
+some record + Record Name = {A[-1], B[2], C[-1]}
+```
 {% endtab %}
 
 {% tab title="Context-Only" %}
+### Await
 
+```
+await some context,
+```
+
+```
+await <some context, other context>,
+```
+
+```
+await <some context as Context Alias, other context>,
+```
+
+```
+await <:: Context Name, {A[1]}; some context: Context Name, {A[2]};>,
+```
+
+### Deregistration
+
+```
+deregister some context,
+```
+
+### Registration
+
+```
+register some context,
+```
+
+```
+`Register a new context.`
+register :: Context Name, {A[1], B[""]};
+
+`All other declaration methods can also be used.`
+```
+
+```
+`Declare and register a new context.`
+register some context: Context Name, {A[1], B[""]};
+
+`All other declaration methods can also be used.`
+```
 {% endtab %}
 {% endtabs %}
 
 ## Variables
 
-...
+Basic types that wrap existing types have variables that are assigned/declared the same as the existing type's variables would be. Composite/Context types are assigned/declared as follows.
+
+### Assignment
+
+```
+some record is {ValueA[1], ValueB[""]},
+```
+
+```
+some record is {ValueA[1], ...},  `Match (default)remaining values.`
+```
+
+### Declaration
+
+```
+some record: Record Name;  `Declare with all default values.`
+```
+
+```
+some record: Generic Record Name(int); `Declare with all default values.`
+```
+
+```
+some record: Record Name, {A[1], B[""]};  `Default any unspecified values.`
+```
+
+```
+some record: Generic Record Name(int), {GenericA[1], NonGenericA[""]};
+```
+
+```
+some record: Record Name, matching record;
+```
+
+```
+some record: Record Name, matching context;
+```
+
+```
+`Anonymous record composed of two unioned record types.
+ Initialized values specified by unioned record instances.`
+some record: Record Name A + Record Name B, record a + record b;
+```
+
+```
+`Anonymous record defined by the initialization value.`
+some record: var, record a + {C[1]};
+```
+
+```
+some record: Record Name, other record with Record Mapping;
+```
+
+```
+some record: Record Name, other record where
+{
+    A is OtherA,
+    B is OtherB
+};
+```
+
+#### Context-Only Declarations
+
+```
+mutualist context: Context Name, matching record, HostA is other context;
+```
+
+```
+host context: Context Name, matching record, MutualistA is other context;
+```

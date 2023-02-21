@@ -24,15 +24,15 @@ This is an [alias](../annex-c/aliasing.md) for a string, essentially enabling a 
 
 #### FileText
 
-This is a [context](../annex-c/contexts.md) representing the text read from a file.
+This is a [context](broken-reference) representing the text read from a file.
 
 #### FormattedSerializedText
 
-This is a [context](../annex-c/contexts.md) wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
+This is a [context](broken-reference) wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
 
 ## Define Aliases
 
-A [context](../annex-c/contexts.md) is defined as a wrapper for FormattedSerializedText, so that FormattedSerializedText can be used by operations through aliasing to this context. A qualifier is also defined within the context, to make an expected operation conditional more readable.
+A [context](broken-reference) is defined as a wrapper for FormattedSerializedText, so that FormattedSerializedText can be used by operations through aliasing to this context. A qualifier is also defined within the context, to make an expected operation conditional more readable.
 
 ```
 UnprocessedSerializedContexts: context[FormattedSerializedText].
