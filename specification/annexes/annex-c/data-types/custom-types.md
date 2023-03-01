@@ -63,7 +63,7 @@ Constant Int: const Int[2].
 `Declare a new type called "Constant Record" to define a constant 
 type for an encapsulation of a couple of values that cannot be changed.`
 
-Constant Record:
+Constant Record: const 
     {
         Value A: Int[3];
         Value B: Bool[true];
@@ -79,7 +79,7 @@ Some Record:
         Value A: Int[Constant A];
         Value B: Bool[false];
     },
-    Constant A: Int[3].
+    Constant A: const Int[3].
 ```
 {% endtab %}
 
