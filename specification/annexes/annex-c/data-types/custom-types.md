@@ -47,7 +47,7 @@ Generic Record (TValue):
 variable called "record", to encapsulate a couple of values 
 as a single data type.`
 
-record: {A: int[-1]; B: int;}, {B[2]};
+record: {A: int[-1]; B: int;} [B[2]];
 ```
 {% endtab %}
 
@@ -111,7 +111,7 @@ Some Host: context
     {
         `Link to Mutualist A's Some Int (if it exists), otherwise 
             default to 0.`
-        Value A: Int[Mutualist A(Some Int), 0];
+        Value A: Int[0], Mutualist A(Some Int);
         Value B: Bool[false];
     },
     Mutualist A: mutualist Other Context.
@@ -125,7 +125,7 @@ associated host context of the type "Other Context".`
 Some Mutualist: context
     {
         `Link to Host A's Some Int and default its value to 0.`
-        Value A: Int[Host A(Some Int), 0];
+        Value A: Int[0], Host A(Some Int);
         Value B: Bool[false];
     },
     Host A: host Other Context.
@@ -475,7 +475,7 @@ await <some context as Context Alias, other context>,
 ```
 
 ```
-await <:: Context Name, {A[1]}; some context: Context Name, {A[2]};>,
+await <Context Name [A[1]], some context: Context Name [A[2]];>,
 ```
 
 ### Deregistration
@@ -492,21 +492,21 @@ register some context,
 
 ```
 `Register a new context.`
-register :: Context Name, {A[1], B[""]};
+register Context Name [A[1], B[""]];
 
 `All other declaration methods can also be used.`
 ```
 
 ```
 `Declare and register a new context.`
-register some context: Context Name, {A[1], B[""]};
+register some context: Context Name [A[1], B[""]];
 
 `All other declaration methods can also be used.`
 ```
 {% endtab %}
 {% endtabs %}
 
-## Variables
+## As Variables
 
 Basic types that wrap existing types have variables that are assigned/declared the same as the existing type's variables would be. Composite/Context types are assigned/declared as follows.
 
@@ -531,50 +531,50 @@ some record: Generic Record Name(int); `Declare with all default values.`
 ```
 
 ```
-some record: Record Name, {A[1], B[""]};  `Default any unspecified values.`
+some record: Record Name [A[1], B[""]];  `Default any unspecified values.`
 ```
 
 ```
-some record: Generic Record Name(int), {GenericA[1], NonGenericA[""]};
+some record: Generic Record Name(int) [GenericA[1], NonGenericA[""]];
 ```
 
 ```
-some record: Record Name, matching record;
+some record: Record Name [matching record];
 ```
 
 ```
-some record: Record Name, matching context;
+some record: Record Name [matching context];
 ```
 
 ```
 `Anonymous record composed of two unioned record types.
  Initialized values specified by unioned record instances.`
-some record: Record Name A + Record Name B, record a + record b;
+some record: Record Name A + Record Name B [record a + record b];
 ```
 
 ```
 `Anonymous record defined by the initialization value.`
-some record: var, record a + {C[1]};
+some record: var [record a + {C[1]}];
 ```
 
 ```
-some record: Record Name, other record with Record Mapping;
+some record: Record Name [other record with Record Mapping];
 ```
 
 ```
-some record: Record Name, other record where
+some record: Record Name [other record where
 {
     A is OtherA,
     B is OtherB
-};
+}];
 ```
 
 #### Context-Only Declarations
 
 ```
-mutualist context: Context Name, matching record, HostA is other context;
+mutualist context: Context Name [matching record, HostA is other context];
 ```
 
 ```
-host context: Context Name, matching record, MutualistA is other context;
+host context: Context Name [matching record, MutualistA is other context];
 ```

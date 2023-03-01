@@ -28,7 +28,7 @@ This is a [context](broken-reference) representing the text read from a file.
 
 #### FormattedSerializedText
 
-This is a [record](broken-reference) wrapping a [dictionary](../annex-c/dictionaries.md) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
+This is a [record](broken-reference) wrapping a [dictionary](broken-reference) of strings mapped to their own FormattedSerializedTexts. This data structure provides an infinitely nestable format for serialized data.
 
 ## Define Serialization Contexts
 
