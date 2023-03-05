@@ -7,52 +7,47 @@ description: >-
 
 # Meta
 
-## Constants
+## General Declaration
 
 ```
-sectionName: meta ConstantA: const int, -1; ConstantB: const bool, true.
+Section Name: 
+    in Some Namespace (Inner Namespace),
+    using Other Namespace,
+    New Name [Other Namespace (Other Name)].
 ```
 
-```
-sectionName: meta
-    ConstantA: const int, -1;
-    ConstantB: const bool, true.
-```
-
-## Namespacing
-
-### Assignment
+## Assignment Variations
 
 ```
-sectionName: meta in SomeNamespace(InnerNamespace).
+Section Name: in Some Namespace (Inner Namespace).
 ```
 
 ```
-sectionName: meta  `Multiple namespace assignment, for three namespaces.`
-    in SomeNamespace(InnerNamespace, OtherInnerNamespace),
-    in AnotherNamespace(InnerNamespace(InnerInnerNamespace)).
+Section Name:  `Multiple namespace assignment, for three namespaces.`
+    in Some Namespace (Inner Namespace, Other Inner Namespace),
+    in Another Namespace( Inner Namespace (Inner Inner Namespace)).
 ```
 
-### Reference
+## Reference Variations
 
 ```
-sectionName: meta using OtherNamespace(InnerNamespace).
-```
-
-```
-sectionName: meta  `Multiple namespace referencing, for three namespaces.`
-    using OtherNamespace(InnerNamespace, OtherInnerNamespace),
-    using AnotherNamespace(InnerNamspace(InnerInnerNamespace)).
-```
-
-## Renaming
-
-```
-sectionName: meta newContextName[OtherNamespace(otherContextName)].
+Section Name: using OtherNamespace(InnerNamespace).
 ```
 
 ```
-sectionName: meta
-    newContextNameA[OtherNamespace(otherContextName)],
-    newContextNameB[AnotherNamespace(InnerNamespace(anotherContextName))].
+Section Name:  `Multiple namespace referencing, for three namespaces.`
+    using Other Namespace (Inner Namespace, Other Inner Namespace),
+    using Another Namespace (Inner Namspace (Inner Inner Namespace)).
+```
+
+## Renaming Variations
+
+```
+Section Name: New Context Name [Other Namespace (Other Context Name)].
+```
+
+```
+Section Name: 
+    New Context Name A [ Other Namespace (Other Context Name)],
+    New Context Name B [Another Namespace (Inner Namespace (Another Context Name))].
 ```
