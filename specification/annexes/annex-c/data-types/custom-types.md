@@ -336,7 +336,7 @@ some record (...) is {A[1], ...},  `Match remaining values.`
 
 {% tabs %}
 {% tab title="Basic Types" %}
-By default, a custom type that wraps an existing type inherits the operators of the existing type, including those of [built-in types](built-in-types.md). Operators declared in the declaration of a type override any matching inherited operator.
+By default, a custom type that wraps an existing type inherits the operators of the existing type, including those of [built-in types](built-in-types/). Operators declared in the declaration of a type override any matching inherited operator.
 {% endtab %}
 
 {% tab title="Composite/Context Types" %}

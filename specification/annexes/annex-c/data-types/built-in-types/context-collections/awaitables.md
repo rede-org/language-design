@@ -1,7 +1,7 @@
 ---
 description: >-
-  The following code examples demonstrate how awaitables can be declared and
-  used. See section [TBD] for details.
+  The following code examples demonstrate the built-in awaitable type offered by
+  the language. See section [TBD] for details.
 ---
 
 # Awaitables

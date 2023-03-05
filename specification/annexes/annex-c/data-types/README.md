@@ -1,7 +1,7 @@
 ---
 description: >-
-  The code examples of this section demonstrate how built-in data types can be
-  used and how custom data types can be declared/used.
+  The following sections demonstrate how built-in data types can be used and how
+  custom data types can be declared/used.
 ---
 
 # Data Types
