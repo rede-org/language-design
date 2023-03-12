@@ -6,7 +6,7 @@ description: >-
 
 # Dictionaries
 
-## Declaration
+## Type Declaration
 
 ```
 Dict Name: {String: Int[-1]}.

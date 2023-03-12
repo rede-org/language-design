@@ -6,7 +6,7 @@ description: >-
 
 # Tuples
 
-## Declaration
+## Type Declaration
 
 ```
 Tuple Name: {Int, Int, Bool}.

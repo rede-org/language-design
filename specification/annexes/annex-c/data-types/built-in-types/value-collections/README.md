@@ -6,7 +6,9 @@ description: >-
 
 # Value Collections
 
-## Assignment
+## As Variables
+
+### Assignment
 
 ```
 some list is {1, 2, 2, 3},
@@ -16,7 +18,7 @@ some list is {1, 2, 2, 3},
 some list is list a + list b,
 ```
 
-## Declaration
+### Declaration
 
 ```
 some list: {int*} [1, 2, 3];

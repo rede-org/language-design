@@ -6,7 +6,7 @@ description: >-
 
 # Sets
 
-## Declaration
+## Type Declaration
 
 ```
 Set Name: {*Int}.

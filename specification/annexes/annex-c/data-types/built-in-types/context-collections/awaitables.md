@@ -6,62 +6,91 @@ description: >-
 
 # Awaitables
 
+## Type Declaration
+
+```
+Specific Awaitable Name: Awaitable.
+```
+
+```
+`Declare an awaitable that can (optionally) only contain the specified types.`
+
+Constrained Awaitable Name A: <Context A, Context B>.
+Constrained Awaitable Name B: <Context A, Context B, Context B>.
+```
+
 ## Operators
 
 ### Await
 
 ```
-await someAwaitable,
+await some awaitable,
 ```
 
 ```
-await <someContext, someAwaitable>,
+await <some context, some awaitable>,
 ```
 
 ### Difference (Remove Elements)
 
 ```
-<contextA, contextB> - <contextB, contextC> = <contextA>
+<context a, context b> - <context b, context c> = <context a>
 ```
 
 ### Intersection
 
 ```
-<contextA, contextB> % <contextB, contextC> = <contextB>
+<context a, context b> % <context b, context c> = <context b>
 ```
 
 ### Union (Appending)
 
 ```
-<contextA, contextB> + <contextB, contextC> = <contextA, contextB, contextC>
+<context a, context b> + <context b, context c> = <context a, context b, context c>
 ```
 
-## Variables
+## As Variables
 
 ### Assignment
 
 ```
-someAwaitable is <contextA, contextB>,
+some awaitable is <context a, context b>,
 ```
 
 ```
-someAwaitable is <contextA, contextB> + <contextB, contextC>,
+some awaitable is <context a, context b> + <context b, context c>,
 ```
 
 ```
-someNestedAwaitable is <contextA, <contextB, contextC>>
+some nested awaitable is <context a, <context b, context c>>
 ```
 
 ### Declaration
 
 ```
-someAwaitable: awaitable, <contextA, contextB>;
+some awaitable: Awaitable [context a, context b];
 ```
 
 ```
-someAwaitable: awaitable, <contextA, contextB> + <contextB, contextC>;
+specific awaitable: Specific Awaitable Name [context a, context b];
 ```
 
 ```
-someNestedAwaitable: awaitable, <contextA, someAwaitable>;
+constrained awaitable: Constrained Awaitable Name A [context a];
+```
+
+```
+constrained awaitable: Constrained Awaitable Name A [context a, context b];
+```
+
+```
+some awaitable: Awaitable [<context a, context b> + <context b, context c>];
+```
+
+```
+some nested awaitable: Awaitable [context a, some awaitable];
+```
+
+```
+some awaitable: var [<context a, context b>];
 ```

@@ -6,7 +6,7 @@ description: >-
 
 # Custom Types
 
-## Declaration
+## Type Declaration
 
 {% tabs %}
 {% tab title="Basic" %}

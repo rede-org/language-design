@@ -6,7 +6,7 @@ description: >-
 
 # Lists
 
-## Declaration
+## Type Declaration
 
 ```
 List Name: {Int*}.
