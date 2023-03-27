@@ -1,22 +1,22 @@
 ---
 description: >-
-  The following code examples demonstrate the built-in awaitable type offered by
+  The following code examples demonstrate the built-in operable type offered by
   the language. See section [TBD] for details.
 ---
 
-# Awaitables
+# Operable
 
 ## Type Declaration
 
 ```
-Specific Awaitable Name: Awaitable.
+Specific Operable Name: Operable.
 ```
 
 ```
-`Declare an awaitable that can (optionally) only contain the specified types.`
+`Declare an operable that can (optionally) only contain the specified types.`
 
-Constrained Awaitable Name A: <Context A, Context B>.
-Constrained Awaitable Name B: <Context A, Context B, Context B>.
+Constrained Operable Name A: <Context A, Context B>.
+Constrained Operable Name B: <Context A, Context B, Context B>.
 ```
 
 ## Operators
@@ -24,11 +24,11 @@ Constrained Awaitable Name B: <Context A, Context B, Context B>.
 ### Await
 
 ```
-await some awaitable,
+await some operable,
 ```
 
 ```
-await <some context, some awaitable>,
+await <some context, some operable>,
 ```
 
 ### Difference (Remove Elements)
@@ -54,43 +54,43 @@ await <some context, some awaitable>,
 ### Assignment
 
 ```
-some awaitable is <context a, context b>,
+some operable is <context a, context b>,
 ```
 
 ```
-some awaitable is <context a, context b> + <context b, context c>,
+some operable is <context a, context b> + <context b, context c>,
 ```
 
 ```
-some nested awaitable is <context a, <context b, context c>>
+some nested operable is <context a, <context b, context c>>
 ```
 
 ### Declaration
 
 ```
-some awaitable: Awaitable [context a, context b];
+some operable: Operable [context a, context b];
 ```
 
 ```
-specific awaitable: Specific Awaitable Name [context a, context b];
+specific operable: Specific Operable Name [context a, context b];
 ```
 
 ```
-constrained awaitable: Constrained Awaitable Name A [context a];
+constrained operable: Constrained Operable Name A [context a];
 ```
 
 ```
-constrained awaitable: Constrained Awaitable Name A [context a, context b];
+constrained operable: Constrained Operable Name A [context a, context b];
 ```
 
 ```
-some awaitable: Awaitable [<context a, context b> + <context b, context c>];
+some operable: Operable [<context a, context b> + <context b, context c>];
 ```
 
 ```
-some nested awaitable: Awaitable [context a, some awaitable];
+some nested operable: Awaitable [context a, some operable];
 ```
 
 ```
-some awaitable: var [<context a, context b>];
+some operable: var [<context a, context b>];
 ```
