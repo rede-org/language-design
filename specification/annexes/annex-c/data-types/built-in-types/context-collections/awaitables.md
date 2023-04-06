@@ -98,9 +98,9 @@ some operable: Operable [<context a, context b> + <context b, context c>];
 ```
 
 ```
-some nested operable: Awaitable [context a, some operable];
+some nested operable: Operable [context a, some operable];
 ```
 
 ```
-some operable: var [<context a, context b>];
+some operable: Var [<context a, context b>];
 ```
