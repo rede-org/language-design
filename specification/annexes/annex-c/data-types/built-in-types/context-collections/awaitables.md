@@ -43,6 +43,16 @@ await <some context, some operable>,
 <context a, context b> % <context b, context c> = <context b>
 ```
 
+### Run
+
+```
+run some operable,
+```
+
+```
+run <some context, some operable>,
+```
+
 ### Union (Appending)
 
 ```
