@@ -31,6 +31,14 @@ await some operable,
 await <some context, some operable>,
 ```
 
+```
+await some operable or another operable,
+```
+
+```
+await some operable and another operable,
+```
+
 ### Difference (Remove Elements)
 
 ```
@@ -51,6 +59,14 @@ run some operable,
 
 ```
 run <some context, some operable>,
+```
+
+```
+run some operable or another operable,
+```
+
+```
+run some operable and another operable,
 ```
 
 ### Union (Appending)
