@@ -39,8 +39,8 @@ some bucket(1?, context c id?) = {true, false}
 
 ```
 some bucket: {*Context Type*} [context a, context b];
-some bucket(0) = context a
-some bucket(context b id) = context b
+some bucket(0) = {*context a*}
+some bucket(context b id) = {*context b*}
 ```
 
 ```
