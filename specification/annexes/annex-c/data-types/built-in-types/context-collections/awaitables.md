@@ -13,7 +13,7 @@ Specific Operable Name: Operable.
 ```
 
 ```
-`Declare an operable that can (optionally) only contain the specified types.`
+`Declare an operable that can only contain up to the specified types.`
 
 Constrained Operable Name A: <Context A, Context B>.
 Constrained Operable Name B: <Context A, Context B, Context B>.
@@ -28,7 +28,7 @@ await some operable,
 ```
 
 ```
-await <some context, some operable>,
+await <some context, some operable, some bucket, some composition>,
 ```
 
 ```
@@ -80,7 +80,7 @@ run some operable and another operable,
 ### Assignment
 
 ```
-some operable is <context a, context b>,
+some operable is <context a, context b, some bucket, some composition>,
 ```
 
 ```
@@ -88,13 +88,13 @@ some operable is <context a, context b> + <context b, context c>,
 ```
 
 ```
-some nested operable is <context a, <context b, context c>>
+some nested operable is <context a, <context b, context c>, {context d}>,
 ```
 
 ### Declaration
 
 ```
-some operable: Operable [context a, context b];
+some operable: Operable [context a, context b, some bucket, some composition];
 ```
 
 ```
