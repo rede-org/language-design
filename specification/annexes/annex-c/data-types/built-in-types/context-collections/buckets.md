@@ -161,7 +161,3 @@ specific bucket: Specific Bucket Name [context a, context b];
 ```
 some bucket: {*Context Type*} [{*context a, context b*} + {*context b, context c*}];
 ```
-
-```
-some bucket: var [{*context a, context b*}];
-```

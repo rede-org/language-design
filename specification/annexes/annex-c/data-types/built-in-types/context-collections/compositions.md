@@ -211,7 +211,3 @@ some composition: Composition [{context a} # Context B];
 ```
 some nested composition: Composition [context a, some composition];
 ```
-
-```
-some composition: Var [{context a, context b}];
-```

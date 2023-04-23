@@ -116,7 +116,3 @@ some operable: Operable [<context a, context b> + <context b, context c>];
 ```
 some nested operable: Operable [context a, some operable];
 ```
-
-```
-some operable: Var [<context a, context b>];
-```

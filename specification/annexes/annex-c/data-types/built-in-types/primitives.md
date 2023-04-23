@@ -27,7 +27,3 @@ some int: int [1];
 ```
 some int: int [a + b];
 ```
-
-```
-new instance: var [original];  `Type determined by the initialization value.`
-```

@@ -35,7 +35,3 @@ some list: {int*} [listA + listB];
 ```
 some dict: {string, int[-1]} [someList];  `Unique values become keys, -1 values.`
 ```
-
-```
-new instance: var [original];  `Type determined by the initialization value.`
-```
