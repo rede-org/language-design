@@ -49,6 +49,39 @@ as a single data type.`
 
 record: {A: int[-1]; B: int;} [B[2]];
 ```
+
+```
+`Declare a new type called "Alias Record" that replaces some of its 
+underlying type's values, essentially aliasing them. Replacing value types 
+must be convertible to/from their replaced value types.`
+
+Alias Record: Some Record
+    {
+        Alias A: replaces Value A;
+        Alias B: Int[0] replaces Value B;
+    }.
+```
+
+```
+`Declare a new type called "Extending Record" that extends its 
+underlying type with new values.`
+
+Extending Record: Some Record
+    {
+        Value C: String[""];
+        Value D: Bool[true];
+    }.
+```
+
+```
+`Declare a new type called "Focused Record" that removes a value 
+from its underlying type.
+
+Focused Record: Some Record
+    {
+        !: replaces Value B;
+    }
+```
 {% endtab %}
 
 {% tab title="Constant" %}
@@ -130,6 +163,39 @@ Some Mutualist: context
     },
     Host A: host Other Context.
 ```
+
+```
+`Declare a new type called "Alias Context" that replaces some of its 
+underlying type's values, essentially aliasing them. Replacing value types 
+must be convertible to/from their replaced value types.`
+
+Alias Context: context Some Context
+    {
+        Alias A: replaces Value A;
+        Alias B: Int[0] replaces Value B;
+    }.
+```
+
+```
+`Declare a new type called "Extending Context" that extends its 
+underlying type with new values.`
+
+Extending Context: context Some Context
+    {
+        Value C: String[""];
+        Value D: Bool[true];
+    }.
+```
+
+```
+`Declare a new type called "Focused Context" that removes a value 
+from its underlying type.
+
+Focused Context: context Some Context
+    {
+        !: replaces Value B;
+    }
+```
 {% endtab %}
 
 {% tab title="Readonly" %}
@@ -175,8 +241,10 @@ Readonly Context: readonly context Int[0].
 {% endtab %}
 {% endtabs %}
 
-### With Casts
+### Options
 
+{% tabs %}
+{% tab title="Casts" %}
 ```
 `Declare a new type called "Some Record" with defined casting to an Int.
 
@@ -188,8 +256,34 @@ Some Record:
     this to Int: () => this(Value A).
 ```
 
-### With Modifiers
+#### With Identifiers
 
+```
+Some Record:
+    {
+        Value A: Int[0];
+        Value B: Bool[false];
+    },
+    To Int :: this to Int: () => this(Value A).
+```
+
+#### With Replacements
+
+```
+Alias Record: Some Record,
+    this to Int: () replaces To Int => 
+        this(Value A);
+```
+
+#### With Removals
+
+```
+Focused Record: Some Record,
+    !: replaces To Int.
+```
+{% endtab %}
+
+{% tab title="Modifiers" %}
 ```
 `Declare a new type called "Special Int" with modifiers to adjust its value.`
 Special Int: Int[0],
@@ -213,8 +307,42 @@ Some Record:
         this(Value B) is i > 10.
 ```
 
-### With Operators
+#### With Identifiers
 
+```
+Some Record:
+    {
+        Value A: Int[0];
+        Value B: Bool[false];
+    },
+    Reset :: reset this: () | 
+        this(Value A) is 0, 
+        this(Value B) is false;
+    Update :: update this with int: (i) | 
+        this(Value A) is i,
+        this(Value B) is i > 10.
+```
+
+#### With Replacements
+
+```
+Alias Record: Some Record,
+    refresh this: () replaces Reset | 
+        reset this;
+    set this for int: (i) replaces Update | 
+        update this with i.
+```
+
+#### With Removals
+
+```
+Focused Record: Some Record,
+    !: replaces Reset;
+    !: replaces Update.
+```
+{% endtab %}
+
+{% tab title="Operators" %}
 ```
 `Declare a new type called "Some Record" with functionality 
 for the '+' operator being defined.`
@@ -231,8 +359,41 @@ Some Record:
         }.
 ```
 
-### With Qualifiers
+#### With Identifiers
 
+```
+Some Record:
+    {
+        Value A: Int[0];
+        Value B: Bool[false];
+    },
+    Add :: this + Int: (i) => 
+        {
+            Value A[this(Value A) + i],
+            Value B[this(Value B)]
+        }.
+```
+
+#### With Removals
+
+```
+Focused Record: Some Record,
+    !: replaces Add.
+```
+
+#### With Replacements
+
+```
+Other Record: Some Record,
+    this + Int: (i) replaces Add => 
+        {
+            Value A[this(Value A) + i],
+            Value B[(this(Value A) + i) > 10]
+        }.
+```
+{% endtab %}
+
+{% tab title="Qualifiers" %}
 ```
 `Declare a new type called "Special Int" with a qualifier to specify whether 
 the int is even.`
@@ -251,6 +412,35 @@ Some Record:
     },
     this is valid for limit Int: (limit) => this(Value A) <= limit.
 ```
+
+#### With Identifiers
+
+```
+Some Record:
+    {
+        Value A: Int[0];
+        Value B: Bool[false];
+    },
+    Is Valid :: this is valid for Int: (limit) => 
+        this(Value A) <= limit.
+```
+
+#### With Removals
+
+```
+Focused Record: Some Record,
+    !: replaces Is Valid.
+```
+
+#### With Replacements
+
+```
+Alias Record: Some Record,
+    this is qualifies with Int: (limit) replaces Is Valid => 
+        this is valid for limit.
+```
+{% endtab %}
+{% endtabs %}
 
 ## Accessing
 
@@ -508,10 +698,10 @@ register some context for some id,
 
 ```
 `Register a new context.`
-register Context Name [A[1], B[""]],
+register !: Context Name [A[1], B[""]];
 
 `or, for with an ID:`
-register Context Name [A[1], B[""]] for some id,
+register !: Context Name [A[1], B[""]]; for some id,
 
 `All other declaration methods can also be used.`
 ```
@@ -539,7 +729,7 @@ some record is {ValueA[1], ValueB[""]},
 ```
 
 ```
-some record is {ValueA[1], ...},  `Match (default)remaining values.`
+some record is {ValueA[1], ...},  `Match (default) remaining values.`
 ```
 
 ### Declaration
@@ -572,11 +762,6 @@ some record: Record Name [matching context];
 `Anonymous record composed of two unioned record types.
  Initialized values specified by unioned record instances.`
 some record: Record Name A + Record Name B [record a + record b];
-```
-
-```
-`Anonymous record defined by the initialization value.`
-some record: var [record a + {C[1]}];
 ```
 
 ```

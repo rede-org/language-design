@@ -117,7 +117,7 @@ Some example behavior for shared coexistent default Context A and Context B:
 ### With Identifier
 
 ```
-Some example behavior for Context A and Context B [Some Example Behavior]:
+Some Example Behavior :: Some example behavior for Context A and Context B:
     {context a, context b}?
     
     `Declare Operations.`

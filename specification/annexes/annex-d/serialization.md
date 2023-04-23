@@ -20,7 +20,7 @@ serializationExample: meta
 
 #### FileToWrite
 
-This is an [alias](../annex-c/aliasing.md) for a string, essentially enabling a string to be identified differently to initiate a different set of operations than it might have otherwise.
+This is an [alias](broken-reference) for a string, essentially enabling a string to be identified differently to initiate a different set of operations than it might have otherwise.
 
 #### FileText
 
