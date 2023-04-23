@@ -112,6 +112,43 @@ Some example behavior for shared coexistent default Context A and Context B:
     `Declare Operations.`
 ```
 
+## Identification-Based Declarations
+
+### With Identifier
+
+```
+Some example behavior for Context A and Context B [Some Example Behavior]:
+    {context a, context b}?
+    
+    `Declare Operations.`
+```
+
+### Extensions
+
+```
+`Extension behaviors qualify based on their conditions and whether their extended 
+    behavior has been qualified.`
+
+Another example behavior for Context A, Context B, and Context C:
+    {context a, context b, context c} extends Some Example Behavior 
+        for {context a, context b}?
+    
+    `Declare extending Operations.`
+```
+
+### Replacements
+
+```
+`Replacement behaviors supercede their specified replaced behaviors.
+    If a replacement behavior qualifies, the replaced behavior will be destroyed 
+    and recreated as the replacement behavior.`
+
+Another example behavior for Context A, Context B, and Context C:
+    {context a, context b, context c} replaces Some Example Behavior?
+    
+    `Declare replacement Operations.`
+```
+
 ## With Conditions
 
 ```
