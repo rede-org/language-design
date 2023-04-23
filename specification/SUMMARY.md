@@ -27,7 +27,6 @@
         * [Sets](annexes/annex-c/data-types/built-in-types/value-collections/sets.md)
         * [Tuples](annexes/annex-c/data-types/built-in-types/value-collections/tuples.md)
     * [Custom Types](annexes/annex-c/data-types/custom-types.md)
-  * [Enums](annexes/annex-c/enums.md)
   * [Mappings](annexes/annex-c/mappings.md)
   * [Meta](annexes/annex-c/meta.md)
 * [Annex D - Program Examples](annexes/annex-d/README.md)

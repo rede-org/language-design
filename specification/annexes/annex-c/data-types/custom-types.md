@@ -84,38 +84,6 @@ Focused Record: Some Record
 ```
 {% endtab %}
 
-{% tab title="Constant" %}
-```
-`Declare a new type called "Constant Int" to define a constant 
-type for the value of 2.`
-
-Constant Int: const Int[2].
-```
-
-```
-`Declare a new type called "Constant Record" to define a constant 
-type for an encapsulation of a couple of values that cannot be changed.`
-
-Constant Record: const 
-    {
-        Value A: Int[3];
-        Value B: Bool[true];
-    }.
-```
-
-```
-`Declare a new type called "Some Record" to define a data 
-type for an encapsulation of a couple of values, with a declared constant.`
-
-Some Record:
-    {
-        Value A: Int[Constant A];
-        Value B: Bool[false];
-    },
-    Constant A: const Int[3].
-```
-{% endtab %}
-
 {% tab title="Context" %}
 ```
 `Declare a new context type called "Int Context" to 
@@ -195,6 +163,92 @@ Focused Context: context Some Context
     {
         !: replaces Value B;
     }
+```
+{% endtab %}
+
+{% tab title="Enums" %}
+```
+`Declare a new type called "Some Enum" to encapsulate 
+named instances as members of an enum.`
+
+Some Enum: [Byte]
+    {
+        A[0],
+        B[1],
+        C[2]
+    }.
+```
+
+```
+`Declare a new type called "Alias Enum" that wraps around another 
+enum's members, essentially aliasing them.`
+
+Alias Enum: [Some Enum]
+    {
+        First[A],
+        Second[B],
+        Third[C]
+    }.
+```
+
+```
+`Declare a new type called "Extending Enum" that provides additional 
+members pointing to the members of its underlying enum.`
+
+Alias Enum: [Some Enum]
+    {
+        First[A],
+        Second[B],
+        Third[C],
+        Fourth[C]
+    }.
+```
+
+```
+`Declare a new type called "Focused Enum" that leaves out some of 
+the members of its underlying enum.`
+
+Alias Enum: [Some Enum]
+    {
+        First[A],
+        Second[B]
+    }.
+```
+{% endtab %}
+{% endtabs %}
+
+### Flags
+
+{% tabs %}
+{% tab title="Constant" %}
+```
+`Declare a new type called "Constant Int" to define a constant 
+type for the value of 2.`
+
+Constant Int: const Int[2].
+```
+
+```
+`Declare a new type called "Constant Record" to define a constant 
+type for an encapsulation of a couple of values that cannot be changed.`
+
+Constant Record: const 
+    {
+        Value A: Int[3];
+        Value B: Bool[true];
+    }.
+```
+
+```
+`Declare a new type called "Some Record" to define a data 
+type for an encapsulation of a couple of values, with a declared constant.`
+
+Some Record:
+    {
+        Value A: Int[Constant A];
+        Value B: Bool[false];
+    },
+    Constant A: const Int[3].
 ```
 {% endtab %}
 
