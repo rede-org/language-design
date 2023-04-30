@@ -8,132 +8,90 @@ description: >-
 
 ## Declaration
 
-### Context to Context
-
 ```
-someMapping: contextName from otherContextName where
-{
-    ContextValueA is (OtherValueA(SubValue)),
-    ContextValueB is (OtherValueB) + 1,
-    ContextValueC is (OtherValueC)
-}.
-```
-
-### Context to Record
-
-```
-someMapping: contextName from recordName where
-{
-    ContextValueA is (RecordValueA) to string,
-    ContextValueB is (RecordValueB) + 1,
-    ContextValueC is (RecordValueC)
-}.
-```
-
-### Enum to Enum
-
-```
-someMapping: enumName from otherEnumName where
-{
-    A is (X),
-    B is (Y), 
-    C is (Z)
-}.
-```
-
-### Record to Context
-
-```
-someMapping: recordName from contextName where
-{
-    RecordValueA is (ContextValueA) to int,
-    RecordValueB is (ContextValueB) - 1,
-    RecordValueC is (ContextValueC)
-}.
-```
-
-### Record to Record
-
-```
-someMapping: recordName from otherRecordName where
-{
-    RecordValueA is (OtherValueA),
-    RecordValueB is (OtherValueB) - 1,
-    RecordValueC is (OtherValueC(SubValue)) to float
-}.
-```
-
-### To Value Type
-
-```
-someNameToString: string from someName where value is "Debug: " + (ValueA).
+Some Record to Int: (r) => r(Value A).
 ```
 
 ```
-someNameToInt: int from someName where value is (ValueA) + (ValueB) + (ValueC).
+Int to Some Record: (i) => {Value A [i], Value B [0]}.
 ```
 
 ```
-listToHalfSum: int from {int*} where 
-{
-    value is value + (...),
-    value is value / 2
-}.
+Some Record to alt Int: (r) => r(Value B).
+```
+
+```
+Some Record with Int to Int: (r, i) => r(Value A) + i.
+```
+
+```
+Some Record to {Int, Int}: (r) => {r(Value A), r(Value B)}.
+```
+
+```
+Some Record with Int to {Int, Int}: (r, i) => {r(Value A) + i, r(Value B) + i}.
+```
+
+```
+{Int*} to half sum Int: (list) => $+list / 2.
+```
+
+```
+{Int*} to doubled {Int*}: (list) => list $$ (i) => i * 2.
+```
+
+```
+{Int*} with (Int => String) to {String*}: (list, mapping) => list $$ mapping.
+```
+
+```
+Int to Some Enum: (i) where
+    i = 0 => Some Enum (A),
+    i = 1 => Some Enum (B),
+    i = 2 => Some Enum (C),
+    default => Some Enum (A).
+```
+
+```
+Some Enum to Other Enum: (e) where
+    e = A => Other Enum (X),
+    e = B => Other Enum (Y),
+    e = C => Other Enum (Z),
+    default => Other Enum (X).
+```
+
+#### With Identifiers
+
+```
+SR to Int :: Some Record to Int: (r) => r(Value A).
+```
+
+#### With Replacements
+
+```
+Some Record to Int: (r) replaces SR To Int => 
+    -r(Value A);
 ```
 
 ## Use
 
-### Declared
-
 ```
-someRecord: recordName, otherRecord with someMapping;
+r: Some Record [5 to Some Record];
 ```
 
 ```
-newContext: contextName, someRecord with someMapping;
+sum: Int [some list to half sum Int];
 ```
 
 ```
-someEnum is anEnum with someMapping,
+e: Some Enum [2 to Some Enum];
 ```
 
 ```
-someInt is someList with listToHalfSum,
-```
-
-### Inline
-
-```
-someRecord: recordName, otherRecord where
-{
-    RecordValueA is (OtherValueA),
-    RecordValueB is (OtherValueB) - 1,
-    RecordValueC is (OtherValueC(SubValue)) to float
-}.
+mapping: (Int => String) [(i) => i to String];
+strings: {String*} [ints with mapping to {String*}];
 ```
 
 ```
-newContext: contextName, someRecord where
-{
-    ContextValueA is (RecordValueA) to string,
-    ContextValueB is (RecordValueB) + 1,
-    ContextValueC is (RecordValueC)
-}.
-```
-
-```
-someEnum is otherEnum where
-{
-    A is (X),
-    B is (Y), 
-    C is (Z)
-},
-```
-
-```
-someInt is someList where 
-{
-    value is value + (...),
-    value is value / 2
-},
+strings: {String*} [ints with [(i) => i to String] to {String*}];
 ```

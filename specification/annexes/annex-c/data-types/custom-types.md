@@ -298,45 +298,6 @@ Readonly Context: readonly context Int[0].
 ### Options
 
 {% tabs %}
-{% tab title="Casts" %}
-```
-`Declare a new type called "Some Record" with defined casting to an Int.
-
-Some Record:
-    {
-        Value A: Int[0];
-        Value B: Bool[false];
-    },
-    this to Int: () => this(Value A).
-```
-
-#### With Identifiers
-
-```
-Some Record:
-    {
-        Value A: Int[0];
-        Value B: Bool[false];
-    },
-    To Int :: this to Int: () => this(Value A).
-```
-
-#### With Replacements
-
-```
-Alias Record: Some Record,
-    this to Int: () replaces To Int => 
-        this(Value A);
-```
-
-#### With Removals
-
-```
-Focused Record: Some Record,
-    !: replaces To Int.
-```
-{% endtab %}
-
 {% tab title="Modifiers" %}
 ```
 `Declare a new type called "Special Int" with modifiers to adjust its value.`
