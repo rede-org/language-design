@@ -307,6 +307,22 @@ Special Int: Int[0],
 ```
 
 ```
+`Declare a new type called "Special Int" with a modifier that adjusts 
+    its value in accordance with an in-line mapping that has 
+    conditional sub-mappings.`
+
+Special Int: Int[0],
+    reset this: () | 
+        this is this -> (Special Int => Special Int) 
+            [
+                (i) ?? 
+                    i % 2 = 1 => 1,
+                    i = 0 => 0,
+                    default => 2
+            ].
+```
+
+```
 `Declare a new type called "Some Record" with modifiers to adjust its values.`
 
 Some Record:
@@ -374,6 +390,18 @@ Some Record:
         }.
 ```
 
+```
+`Declare a new type called "Special Int" with functionality 
+    for the '+' operator that uses a conditional to 
+    determine the result.`
+
+Special Int: Int[0],
+    this + Int: (i) ?? 
+        i % 2 = 1 => this + 1,
+        i = 0 => this,
+        default => this + 2.
+```
+
 #### With Identifiers
 
 ```
@@ -426,6 +454,21 @@ Some Record:
         Value B: Bool[false];
     },
     this is valid for limit Int: (limit) => this(Value A) <= limit.
+```
+
+```
+`Declare a new type called "Some Record" with a qualifier to specify 
+whether the record is valid with a specified limit, per a conditional 
+defined by another value of the record.`
+
+Some Record:
+    {
+        Value A: Int[0];
+        Value B: Bool[false];
+    },
+    this is valid for limit Int: (limit) ??
+        this(Value B) => this(Value A) <= limit,
+        default => true.
 ```
 
 #### With Identifiers
