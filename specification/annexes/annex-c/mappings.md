@@ -45,7 +45,7 @@ Some Record with Int to {Int, Int}: (r, i) => {r(Value A) + i, r(Value B) + i}.
 ```
 
 ```
-Int to Some Enum: (i) where
+Int to Some Enum: (i) ??
     i = 0 => Some Enum (A),
     i = 1 => Some Enum (B),
     i = 2 => Some Enum (C),
@@ -53,7 +53,7 @@ Int to Some Enum: (i) where
 ```
 
 ```
-Some Enum to Other Enum: (e) where
+Some Enum to Other Enum: (e) ??
     e = A => Other Enum (X),
     e = B => Other Enum (Y),
     e = C => Other Enum (Z),
