@@ -17,6 +17,11 @@ Int to Some Record: (i) => {Value A [i], Value B [0]}.
 ```
 
 ```
+Int per (Int => Int) to Some Record: (i, mapping) => 
+    {Value A [i], Value B [i -> mapping]}
+```
+
+```
 Some Record to alt Int: (r) => r(Value B).
 ```
 
@@ -64,6 +69,9 @@ Some Enum to Other Enum: (e) ??
 
 ```
 SR to Int :: Some Record to Int: (r) => r(Value A).
+
+`Use within an Operation to declare a value from a Mapping result.`
+i: Int [r -> ST to Int];
 ```
 
 #### With Replacements
@@ -85,6 +93,11 @@ sum: Int [some list to half sum Int];
 
 ```
 e: Some Enum [2 to Some Enum];
+```
+
+```
+mapping: (Int => String) [(i) => i to String];
+s: String [2 -> mapping];
 ```
 
 ```
