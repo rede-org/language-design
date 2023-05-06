@@ -73,7 +73,7 @@ Iterable Value (T):
         value: T
     },
     `Create an operator to easily create updated values.`
-    Iterate this and update with (T => T): (update mapping) =>
+    Increment this and update with (T => T): (update mapping) =>
         {
             index [this(index) + 1],
             value [this(value) -> update mapping]
@@ -85,15 +85,15 @@ Iterable Value (T):
     list $Iterable Value(Some Record)$ 
         [
             (i, v) ?? 
-                v(index) < 10 => Iterate v and update with 
+                v(index) < 10 => Increment v and update with 
                     [
                         (value) => value + {A[value(A) + i + offset]}
                     ],
-                v(index) = 10 => Iterate v and update with
+                v(index) = 10 => Increment v and update with
                     [
                         (value) => value + {B[value(B) + i + offset]}
                     ],
-                default => Iterate v and update with 
+                default => Increment v and update with 
                     [
                         (value) => value + {C[value(C) + i + offset]}
                     ]
