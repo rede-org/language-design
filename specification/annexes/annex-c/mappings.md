@@ -38,11 +38,11 @@ Some Record with Int to {Int, Int}: (r, i) => {r(Value A) + i, r(Value B) + i}.
 ```
 
 ```
-{Int*} to half sum Int: (list) => $+list / 2.
+{Int*} to half sum Int: (list) => list $Int$ [(i, sum) => sum + i] / 2.
 ```
 
 ```
-{Int*} to doubled {Int*}: (list) => list $$ (i) => i * 2.
+{Int*} to doubled {Int*}: (list) => list $$ [(i) => i * 2].
 ```
 
 ```
@@ -63,6 +63,41 @@ Some Enum to Other Enum: (e) ??
     e = B => Other Enum (Y),
     e = C => Other Enum (Z),
     default => Other Enum (X).
+```
+
+```
+`Declare a simple record to track an index with a value.`
+Iterable Value (T): 
+    {
+        index: Int,
+        value: T
+    },
+    `Create an operator to easily create updated values.`
+    Iterate this and update with (T => T): (update mapping) =>
+        {
+            index [this(index) + 1],
+            value [this(value) -> update mapping]
+        }.
+
+`Declare a mapping to condense a list to a record.
+ The offset is used in the nested anonymous mapping, making a closure.`
+{Int*} with Int to Some Record: (list, offset) => 
+    list $Iterable Value(Some Record)$ 
+        [
+            (i, v) ?? 
+                v(index) < 10 => Iterate v and update with 
+                    [
+                        (value) => value + {A[value(A) + i + offset]}
+                    ],
+                v(index) = 10 => Iterate v and update with
+                    [
+                        (value) => value + {B[value(B) + i + offset]}
+                    ],
+                default => Iterate v and update with 
+                    [
+                        (value) => value + {C[value(C) + i + offset]}
+                    ]
+        ] (value).  `Retrieve and finally return the value of the Iterable Value.`
 ```
 
 #### With Identifiers
