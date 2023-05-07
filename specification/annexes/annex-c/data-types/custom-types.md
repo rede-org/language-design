@@ -726,12 +726,6 @@ await <some context as Context Alias, other context>,
 await <Context Name [A[1]], some context: Context Name [A[2]];>,
 ```
 
-### Deregistration
-
-```
-deregister some context,
-```
-
 ### ID Retrieval
 
 ```
@@ -743,35 +737,6 @@ Some operation for Context Name and Other Context Name: <a, b>
 ```
 Some operation for Context Name and Other Context Name: <a, b>?
     b(some id) is a'.
-```
-
-### Registration
-
-```
-register some context,
-
-`or, for with an ID:`
-register some context for some id,
-```
-
-```
-`Register a new context.`
-register !: Context Name [A[1], B[""]];
-
-`or, for with an ID:`
-register !: Context Name [A[1], B[""]]; for some id,
-
-`All other declaration methods can also be used.`
-```
-
-```
-`Declare and register a new context.`
-register some context: Context Name [A[1], B[""]];
-
-`or, for with an ID:`
-register some context: Context Name [A[1], B[""]]; for some id,
-
-`All other declaration methods can also be used.`
 ```
 {% endtab %}
 {% endtabs %}
