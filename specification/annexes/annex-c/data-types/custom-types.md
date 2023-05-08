@@ -421,7 +421,8 @@ Some Record:
 
 ```
 Focused Record: Some Record,
-    !: replaces Add.
+    !: replaces Add => this.
+    `A return must be provided to support the base's use with generics.`
 ```
 
 #### With Replacements
@@ -487,7 +488,8 @@ Some Record:
 
 ```
 Focused Record: Some Record,
-    !: replaces Is Valid.
+    !: replaces Is Valid => false.
+    `A return must be provided to support the base's use with generics.`
 ```
 
 #### With Replacements
