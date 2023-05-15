@@ -48,16 +48,6 @@ some bucket: {*Context Type*} [context a, context b];
 some bucket(...) = {*context a, context b*}  `Total collection accessor.`
 ```
 
-### Await
-
-```
-await some bucket,
-```
-
-```
-await <some context, some bucket>,
-```
-
 ### Difference (Remove Elements)
 
 ```
@@ -68,9 +58,9 @@ await <some context, some bucket>,
 
 ```
 `Filter for a Behavior.`
-Manage {*Context Type*}: {contexts},
-    filter contexts by result for a:
-        await <a, result as filter result>?
+`Generic 'T' is treated as the defined type, Base Context.`
+Manage {*T*} (T [Base Context]): {contexts},
+    where contexts $! [(a) => a meets criteria]?
     
     `Behavior Operations.`
 ```
@@ -78,10 +68,8 @@ Manage {*Context Type*}: {contexts},
 ```
 `Filter for an Operation.`
 Update {*Context Type*}: <contexts>,
-    positive contexts <- filter contexts by result for a:
-        result is a(ValueA) > 0;
-    negative contexts <- filter contexts by result for a:
-        result is a(ValueA) < 0;
+    where positive contexts is contexts &! [(a) => a(Value A) > 0],
+    where negative contexts is contexts &! [(a) => a(Value A) < 0],
     when |positive contexts| > 0 and |negative contexts| > 0?
     
     `Operation Logic.`
@@ -93,27 +81,13 @@ Update {*Context Type*}: <contexts>,
 {*context a, context b*} % {*context b, context c*} = {*context b*}
 ```
 
-### Run
-
-```
-run some bucket,
-```
-
-```
-run {*context a, context b*},
-```
-
-```
-run <some context, some bucket>,
-```
-
 ### Sort
 
 ```
 `Sort for a Behavior.`
-Manage {*Context Type*}: {contexts},
-    sort contexts by result for a, b:
-        await <a, b, result as sort result>?
+`Generic 'T' is treated as the defined type, Base Context.`
+Manage {*T*} (T [Base Context]): {contexts},
+    where contexts &^ [(a, b => a - b]?
     
     `Behavior Operations.`
 ```
@@ -121,10 +95,8 @@ Manage {*Context Type*}: {contexts},
 ```
 `Sort for an Operation.`
 Update {*Context Type*}: <contexts>,
-    ordered contexts <- sort contexts by result for a, b:
-        result is a(ValueA) - b(ValueA);
-    reversed contexts <- sort contexts by result for a, b:
-        result is b(ValueA) - a(ValueA)?
+    where ordered contexts is contexts &^ [(a, b) => a - b],
+    where reversed contexts is contexts &^ [(a, b) => b - a]?
     
     `Operation Logic.`
 ```
