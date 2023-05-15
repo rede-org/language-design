@@ -708,39 +708,6 @@ some record: {A: int[-1]; B: int;}, {B[2]};
 some record + Record Name = {A[-1], B[2], C[-1]}
 ```
 {% endtab %}
-
-{% tab title="Context-Only" %}
-### Await
-
-```
-await some context,
-```
-
-```
-await <some context, other context>,
-```
-
-```
-await <some context as Context Alias, other context>,
-```
-
-```
-await <Context Name [A[1]], some context: Context Name [A[2]];>,
-```
-
-### ID Retrieval
-
-```
-Some operation for Context Name and Other Context Name: <a, b>
-    when a' = b(some id)?
-        `Do something`.
-```
-
-```
-Some operation for Context Name and Other Context Name: <a, b>?
-    b(some id) is a'.
-```
-{% endtab %}
 {% endtabs %}
 
 ## As Variables
