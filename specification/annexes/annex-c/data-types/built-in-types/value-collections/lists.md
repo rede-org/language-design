@@ -17,35 +17,37 @@ List Name: {Int*}.
 ### Containment
 
 ```
-some list: {Int*} [1, 2, 3];
-some list (0?) = true    `The index 0 has a value in the list.`
-some list (3?) = false  `The index 3 does not have a value in the list.`
+some list: {Int*} ["b", "c", "d"];
+some list ("a"?) = false  `The value "a" is not in the list.`
+some list ("b"?) = true   `The value "b" is in the list.`
 ```
 
 ```
-some list: {Int*} [1, 2, 3];
-some list (0?, 3?) = {true, false}  `Whether there is a value for each index.`
+some list: {Int*} ["b", "c", "d"];
+some list ("a"?, "b"?) = {false, true}  `Whether there is each value in the list.`
 ```
 
 ```
-some list: {Int*} [1, 2, 3];
-some list (0 ? -1) = 1  `Provide the value at index 0, or default to -1.`
-some list (3 ? -1) = -1
+some list: {Int*} ["b", "c", "d"];
+some list (0 ? "a") = "b"  `Provide the value at index 0, or default to "a".`
+some list (3 ? "a") = "a"
 ```
 
 ```
-some list: {Int*} [1, 2, 3];
-some list (0 ? -1, 3 ? -1) = {1, -1}
+some list: {Int*} ["b", "c", "d"];
+some list (0 ? "a", 3 ? "a") = {"b", "a"}
 ```
 
 ```
-some list: {Int*} [1, 2, 3];
-some list ([1, 4)?) = {true, true, false}  `Check for indices in range [1, 4).`
+some list: {Int*} ["b", "c", "d"];
+some list ({"a", "b"}?) = {false, true}  `Check for the values from the tuple.`
 ```
 
 ```
-some list: {Int*} [1, 2, 3];
-some list ([1, 4) ? -1) = {2, 3, -1}
+some list: {Int*} ["b", "c", "d"];
+
+`Provide the values in the range of indices [1, 4), or default to "a".`
+some list ([1, 4) ? "a") = {"c", "d", "a"}
 ```
 
 ### Retrieving
