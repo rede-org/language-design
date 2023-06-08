@@ -31,6 +31,18 @@ Some Record:
 ```
 
 ```
+`Declare a new type called "Some Record" to encapsulate 
+a couple of values as a single data type and to fulfill the 
+contract "Valuable".`
+
+Some Record [Valuable]:
+    {
+        Value A: Int[0];
+        Value B: Bool[false];
+    }.
+```
+
+```
 `Declare a new generic type called "Generic Record" to encapsulate 
 a couple of values as a single data type, including a value whose 
 type is generically defined as "TValue".`
@@ -104,6 +116,18 @@ Some Context: context
 ```
 
 ```
+`Declare a new context type called "Some Context" to encapsulate 
+a couple of values as a single context type and to fulfill the 
+contract "Valuable".`
+
+Some Context [Valuable]: context
+    {
+        Value A: Int[0];
+        Value B: Bool[false];
+    }.
+```
+
+```
 `Declare a new context type called "Some Host" to encapsulate 
 a couple of values as a single context type with an 
 associated mutualist context of the type "Other Context".`
@@ -166,7 +190,54 @@ Focused Context: context Some Context
 ```
 {% endtab %}
 
-{% tab title="Enums" %}
+{% tab title="Contract" %}
+```
+`Declare a new contract type called "Valuable" to 
+encapsulate a couple of values for contractual use (abstraction) of 
+any types that fulfill the contract.`
+
+Valuable: contract
+    {
+        Value A: Int[0];
+        Value B: Bool[false];
+    }.
+```
+
+```
+`Declare a new type called "Alias Contract" that replaces some of its 
+underlying contract type's values, essentially aliasing them. 
+Replacing value types must be convertible to/from their replaced value types.`
+
+Alias Contract: contract Valuable
+    {
+        Alias A: replaces Value A;
+        Alias B: Int[0] replaces Value B;
+    }.
+```
+
+```
+`Declare a new type called "Extending Contract" that extends its 
+underlying contract type with new values.`
+
+Extending Contract: contract Valuable
+    {
+        Value C: String[""];
+        Value D: Bool[true];
+    }.
+```
+
+```
+`Declare a new type called "Focused Contract" that removes a value 
+from its underlying contract type.
+
+Focused Contract: contract Valuable
+    {
+        !: replaces Value B;
+    }
+```
+{% endtab %}
+
+{% tab title="Enum" %}
 ```
 `Declare a new type called "Some Enum" to encapsulate 
 named instances as members of an enum.`
