@@ -12,6 +12,10 @@ description: >-
 Tuple Name: {Int, Int, Bool}.
 ```
 
+```
+Tuple Name: {Int*2*, Bool}.
+```
+
 ## Accessing
 
 ### Retrieving
