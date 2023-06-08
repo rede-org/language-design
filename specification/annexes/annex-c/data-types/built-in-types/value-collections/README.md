@@ -21,6 +21,18 @@ some list is list a + list b,
 ### Declaration
 
 ```
+some array: {int**} [1, 2, 3];
+```
+
+```
+some array: {int*3*} [1, 2, 3];
+```
+
+```
+some array: {int[-1]*10*} [1, 2, 3];  `Expect size 10, default to -1 if undefined.`
+```
+
+```
 some list: {int*} [1, 2, 3];
 ```
 

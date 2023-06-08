@@ -22,6 +22,7 @@
         * [Operable](annexes/annex-c/data-types/built-in-types/context-collections/awaitables.md)
       * [Primitives](annexes/annex-c/data-types/built-in-types/primitives.md)
       * [Value Collections](annexes/annex-c/data-types/built-in-types/value-collections/README.md)
+        * [Arrays](annexes/annex-c/data-types/built-in-types/value-collections/arrays.md)
         * [Dictionaries](annexes/annex-c/data-types/built-in-types/value-collections/dictionaries.md)
         * [Lists](annexes/annex-c/data-types/built-in-types/value-collections/lists.md)
         * [Sets](annexes/annex-c/data-types/built-in-types/value-collections/sets.md)
