@@ -366,7 +366,7 @@ Readonly Context: readonly context Int[0].
 {% endtab %}
 {% endtabs %}
 
-### Options
+### Decorators
 
 {% tabs %}
 {% tab title="Modifiers" %}
