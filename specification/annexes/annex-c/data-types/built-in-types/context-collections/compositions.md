@@ -65,12 +65,12 @@ some composition(...) = {context a, context b}  `Total collection accessor.`
 ### Expansion
 
 ```
-`First Context B instance related to context a through a Behavior is unioned.`
+`All Context B instances related to context a through a Behavior are unioned.`
 {context a} # Context B = {context a, context b}
 ```
 
 ```
-`All Context B instances related to context a through its Behaviors are unioned.`
+`All Context B buckets related to context a through its Behaviors are unioned.`
 {context a} # {*Context B*} = {context a, context b bucket}
 ```
 
