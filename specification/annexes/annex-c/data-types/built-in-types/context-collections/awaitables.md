@@ -21,24 +21,6 @@ Constrained Operable Name B: <Context A, Context B, Context B>.
 
 ## Operators
 
-### Await
-
-```
-await some operable,
-```
-
-```
-await <some context, some operable, some bucket, some composition>,
-```
-
-```
-await some operable or another operable,
-```
-
-```
-await some operable and another operable,
-```
-
 ### Difference (Remove Elements)
 
 ```
@@ -49,24 +31,6 @@ await some operable and another operable,
 
 ```
 <context a, context b> % <context b, context c> = <context b>
-```
-
-### Run
-
-```
-run some operable,
-```
-
-```
-run <some context, some operable>,
-```
-
-```
-run some operable or another operable,
-```
-
-```
-run some operable and another operable,
 ```
 
 ### Union (Appending)

@@ -56,40 +56,6 @@ some composition: Composition [context a, context b];
 some composition(...) = {context a, context b}  `Total collection accessor.`
 ```
 
-### Await
-
-```
-`Await all reactive evaluations of the composition.`
-await some composition,
-```
-
-```
-`Await all reactive evaluations of the composition.`
-await {some context, some other context, some bucket},
-```
-
-```
-`Await any qualifying operation belonging to the composition.`
-await some operable for some composition,
-```
-
-```
-`Await any qualifying operation belonging to the composition.`
-await <some context> for {other context},
-```
-
-```
-`Await any qualifying operation belonging to the composition, and if none 
- are performed, await a different set of qualifying operations.`
-await some operable for some composition or other operable for some composition,
-```
-
-```
-`Await any qualifying operation belonging to the composition, and if at least one 
- is performed, await a different set of qualifying operations.`
-await some operable for some composition and other operable for some composition,
-```
-
 ### Difference (Remove Elements)
 
 ```
@@ -124,40 +90,6 @@ await some operable for some composition and other operable for some composition
 ```
 `All Context B buckets are removed.`
 {context a, context b bucket, context b} !# {*Context B*} = {context a, context b}
-```
-
-### Run
-
-```
-`Run all reactive evaluations of the composition.`
-run some composition,
-```
-
-```
-`Run all reactive evaluations of the composition.`
-run {some context, some other context},
-```
-
-```
-`Run any qualifying operation belonging to the composition.`
-run some operable for some composition,
-```
-
-```
-`Run any qualifying operation belonging to the composition.`
-run <some context> for {other context},
-```
-
-```
-`Run any qualifying operation belonging to the composition, and if none 
- are performed, run a different set of qualifying operations.`
-run some operable for some composition or other operable for some composition,
-```
-
-```
-`Run any qualifying operation belonging to the composition, and if at least one 
- is performed, run a different set of qualifying operations.`
-run some operable for some composition and other operable for some composition,
 ```
 
 ### Union (Appending)
