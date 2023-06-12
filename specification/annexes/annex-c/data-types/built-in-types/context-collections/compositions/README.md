@@ -104,6 +104,7 @@ await some operable for some composition and other operable for some composition
 ```
 
 ```
+`All Context B instances related to context a through its Behaviors are unioned.`
 {context a} # {*Context B*} = {context a, context b bucket}
 ```
 
@@ -121,6 +122,7 @@ await some operable for some composition and other operable for some composition
 ```
 
 ```
+`All Context B buckets are removed.`
 {context a, context b bucket, context b} !# {*Context B*} = {context a, context b}
 ```
 
@@ -162,6 +164,10 @@ run some operable for some composition and other operable for some composition,
 
 ```
 {context a, context b} + {context b, context c} = {context a, context b, context c}
+```
+
+```
+{context a} + {{context a, context b}} = {context a, {context a, context c}}
 ```
 
 ## As Variables
