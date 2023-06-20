@@ -121,11 +121,61 @@ continue,
 ### Asynchronous
 
 ```
-// Some code
+await some context as Registration,
+```
+
+```
+await some context as Deregistration,
+```
+
+```
+some registration: Registration [some composition];
+await some registration,
+```
+
+```
+await some registration as Deregistration,
+```
+
+```
+await {context A, context B} as Deregistration,
+```
+
+```
+await !: Context Name [A[1], B[""]]; as Registration,
+```
+
+```
+await some context: Context Name [A[1], B[""]]; as Registration,
 ```
 
 ### Synchronous
 
 ```
-// Some code
+run some context as Registration,
+```
+
+```
+run some context as Deregistration,
+```
+
+```
+some registration: Registration [some composition];
+run some registration,
+```
+
+```
+run some registration as Deregistration,
+```
+
+```
+run {context A, context B} as Deregistration,
+```
+
+```
+run !: Context Name [A[1], B[""]]; as Registration,
+```
+
+```
+run some context: Context Name [A[1], B[""]]; as Registration,
 ```
