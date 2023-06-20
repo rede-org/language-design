@@ -38,15 +38,15 @@ Some Record with Int to {Int, Int}: (r, i) => {r(Value A) + i, r(Value B) + i}.
 ```
 
 ```
-{Int*} to half sum Int: (list) => list $Int$ [(i, sum) => sum + i] / 2.
+{Int*} to half sum Int: (list) => list mapped to Int by [(i, sum) => sum + i] / 2.
 ```
 
 ```
-{Int*} to doubled {Int*}: (list) => list $$ [(i) => i * 2].
+{Int*} to doubled {Int*}: (list) => list mapped by [(i) => i * 2].
 ```
 
 ```
-{Int*} with (Int => String) to {String*}: (list, mapping) => list $$ mapping.
+{Int*} with (Int => String) to {String*}: (list, mapping) => list mapped by mapping.
 ```
 
 ```
@@ -82,7 +82,7 @@ Iterable Value (T):
 `Declare a mapping to condense a list to a record.
  The offset is used in the nested anonymous mapping, making a closure.`
 {Int*} with Int to Some Record: (list, offset) => 
-    list $Iterable Value(Some Record)$ 
+    list mapped to Iterable Value(Some Record) by
         [
             (i, v) ?? 
                 v(index) < 10 => Increment v and update with 

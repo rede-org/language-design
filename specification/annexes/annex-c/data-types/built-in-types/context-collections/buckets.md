@@ -60,7 +60,7 @@ some bucket(...) = {*context a, context b*}  `Total collection accessor.`
 `Filter for a Behavior.`
 `Generic 'T' is treated as the defined type, Base Context.`
 Manage {*T*} (T [Base Context]): {contexts},
-    where contexts $! [(a) => a meets criteria]?
+    where contexts filtered by [(a) => a meets criteria]?
     
     `Behavior Operations.`
 ```
@@ -68,8 +68,8 @@ Manage {*T*} (T [Base Context]): {contexts},
 ```
 `Filter for an Operation.`
 Update {*Context Type*}: <contexts>,
-    where positive contexts is contexts &! [(a) => a(Value A) > 0],
-    where negative contexts is contexts &! [(a) => a(Value A) < 0],
+    where positive contexts is contexts filtered by [(a) => a(Value A) > 0],
+    where negative contexts is contexts filtered by [(a) => a(Value A) < 0],
     when |positive contexts| > 0 and |negative contexts| > 0?
     
     `Operation Logic.`
@@ -87,7 +87,7 @@ Update {*Context Type*}: <contexts>,
 `Sort for a Behavior.`
 `Generic 'T' is treated as the defined type, Base Context.`
 Manage {*T*} (T [Base Context]): {contexts},
-    where contexts &^ [(a, b => a - b]?
+    where contexts sorted by [(a, b => a - b]?
     
     `Behavior Operations.`
 ```
@@ -95,8 +95,8 @@ Manage {*T*} (T [Base Context]): {contexts},
 ```
 `Sort for an Operation.`
 Update {*Context Type*}: <contexts>,
-    where ordered contexts is contexts &^ [(a, b) => a - b],
-    where reversed contexts is contexts &^ [(a, b) => b - a]?
+    where ordered contexts is contexts sorted by [(a, b) => a - b],
+    where reversed contexts is contexts sorted by [(a, b) => b - a]?
     
     `Operation Logic.`
 ```
