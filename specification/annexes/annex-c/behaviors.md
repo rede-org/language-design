@@ -161,17 +161,23 @@ Some example behavior for Context A and Context B: {context a, context b},
 ## With Filtering
 
 ```
-Some example behavior for {*Context A*} and Context B: 
-    {context a bucket, context b},
-    filter context a bucket by result for a: 
-        result is a (Value A) > context b (Value A)?
+`Filter for a Behavior.`
+`Generic 'T' is treated as the defined type, Base Context.`
+
+Manage {*T*} (T [Base Context]): {contexts},
+    where contexts filtered by [(a) => a meets criteria]?
+    
+    `Behavior Operations.`
 ```
 
 ## With Sorting
 
 ```
-Some example behavior for {*Context A*} and Context B: 
-    {context a bucket, context b},
-    sort context a bucket by result for a, b: 
-        result is a (Value A) - b (Value A)?
+`Sort for a Behavior.`
+`Generic 'T' is treated as the defined type, Base Context.`
+
+Manage {*T*} (T [Base Context]): {contexts},
+    where contexts sorted by [(a, b => a - b]?
+    
+    `Behavior Operations.`
 ```

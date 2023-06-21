@@ -8,7 +8,7 @@ description: >-
 
 ## Control Flow
 
-All control flow is accomplished through synchronous or asynchronous performance of operations, which define their own internal control flow. Refer to matching data type documentation for details on each type of data being manipulated.
+All control flow is accomplished through synchronous or asynchronous performance of [operations](operations.md), which define their own internal control flow. Refer to the documentation on [contexts](data-types/custom-types.md#context), [buckets](data-types/built-in-types/context-collections/buckets.md), [compositions](data-types/built-in-types/context-collections/compositions.md), and [operables](data-types/built-in-types/context-collections/operables.md) for details on each type of data being manipulated.
 
 ### Asynchronous
 

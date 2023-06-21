@@ -59,6 +59,7 @@ some bucket(...) = {*context a, context b*}  `Total collection accessor.`
 ```
 `Filter for a Behavior.`
 `Generic 'T' is treated as the defined type, Base Context.`
+
 Manage {*T*} (T [Base Context]): {contexts},
     where contexts filtered by [(a) => a meets criteria]?
     
@@ -86,6 +87,7 @@ Update {*Context Type*}: <contexts>,
 ```
 `Sort for a Behavior.`
 `Generic 'T' is treated as the defined type, Base Context.`
+
 Manage {*T*} (T [Base Context]): {contexts},
     where contexts sorted by [(a, b => a - b]?
     
