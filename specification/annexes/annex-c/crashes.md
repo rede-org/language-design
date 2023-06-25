@@ -15,9 +15,13 @@ crash "Some Error Message!"
 ## With Context Handling
 
 ```
-crash "Some Error Message!" for <someContext, otherContext>
+`Attempt to recover with the specified operable.`
+
+crash "Some Error Message!" for <some context, other context>
 ```
 
 ```
-crash "Some Error Message!" for someAwaitable
+`Attempt to recover with the specified operable.`
+
+crash "Some Error Message!" for some operable
 ```

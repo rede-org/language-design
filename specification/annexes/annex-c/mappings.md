@@ -138,6 +138,11 @@ s: String [2 -> mapping];
 ```
 
 ```
+mapping: (Int, Int => Special Int) [(a, b) => a + b to Special Int];
+s: Special Int [[2, 3] -> mapping];
+```
+
+```
 mapping: (Int => String) [(i) => i to String];
 strings: {String*} [ints with mapping to {String*}];
 ```
