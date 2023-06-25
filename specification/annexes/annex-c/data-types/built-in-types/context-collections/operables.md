@@ -4,7 +4,7 @@ description: >-
   the language. See section [TBD] for details.
 ---
 
-# Operable
+# Operables
 
 ## Type Declaration
 
@@ -20,6 +20,30 @@ Constrained Operable Name B: <Context A, Context B, Context B>.
 ```
 
 ## Operators
+
+### Accessing
+
+#### Containment
+
+```
+some operable: Operable [context a, context b];
+
+`Index checks.`
+some operable(0?) = true
+some operable(1?, 2?) = {true, false}
+```
+
+#### Retrieving
+
+```
+some operable: Operable [context a, context b];
+some operable(0) = <context a>
+```
+
+```
+some operable: Operable [context a, context b];
+some operable(...) = <context a, context b>  `Total collection accessor.`
+```
 
 ### Difference (Remove Elements)
 
@@ -49,6 +73,11 @@ some operable is <context a, context b, some bucket, some composition>,
 
 ```
 some operable is <context a, context b> + <context b, context c>,
+```
+
+```
+`Index-based assignment.`
+some operable(0) is <context d>,
 ```
 
 ```

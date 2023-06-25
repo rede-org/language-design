@@ -30,8 +30,8 @@ Constrained Composition Name C: {Context A, {*Context B*}}.
 some composition: Composition [context a, context b];
 
 `Index checks.`
-some composition(1?) = true
-some composition(2?) = false
+some composition(0?) = true
+some composition(1?) = false
 
 `ID checks.`
 some composition(context a id?) = true
@@ -116,6 +116,11 @@ some composition is {context a, context b} + {context b, context c},
 
 ```
 some nested composition is {context a, {context b, context c}},
+```
+
+```
+`Index-based assignment.`
+some composition(0) is {context d},
 ```
 
 ```
