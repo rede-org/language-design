@@ -191,7 +191,8 @@ Some example operation for Context A and Context B:
 
 Some example operation for Context A and Context B: 
     <context a, context b>,
-    only after Another Identified Operation?
+    after Another Identified Operation, 
+    with Another Identified Operation?
         `Operation logic.`
 ```
 
@@ -201,7 +202,30 @@ Some example operation for Context A and Context B:
 
 Some example operation for Context A and Context B: 
     <context a, context b>,
-    only before Another Identified Operation?
+    before Another Identified Operation, 
+    with Another Identified Operation?
+        `Operation logic.`
+```
+
+```
+`The operation will be performed after 'Another Identified Operation', but only 
+     if an operation 'Other Identified Operation' was not performed.
+
+Some example operation for Context A and Context B: 
+    <context a, context b>,
+    after Another Identified Operation, 
+    without Other Identified Operation?
+        `Operation logic.`
+```
+
+```
+`The operation will be performed before 'Another Identified Operation', but only 
+     if an operation 'Other Identified Operation' was not performed.
+
+Some example operation for Context A and Context B: 
+    <context a, context b>,
+    before Another Identified Operation, 
+    without Other Identified Operation?
         `Operation logic.`
 ```
 
@@ -214,13 +238,39 @@ Some example operation for Context A and Context B:
 
 Another example operation for Context A, Context B, and Context C:
     {context a, context b, context c} replaces Some Example Operation?
+        `Operation logic.`
+```
+
+## Operation Groups
+
+```
+`Operations can be grouped within an encapsulating operation.
+    Once the encapsulating operation qualifies, its nested operations will be 
+    evaluated, and any of those that qualify will be performed. The contexts of 
+    the encapsulating group are accessible to the nested operations.`
+
+Some example operation group for Context A and Context B: 
+    <context a, context b>?
+    {
+        A :: Nested operation A:
+            when context a (Value A) > context b (Value A)?
+                `Operation logic.`,
     
-    `Operation logic.`
-```
+        B :: Nested operation B:
+            when context a (Value B) > context b (Value B),
+            after A, 
+            with A?
+                `Operation logic.`,
+    
+        C :: Nested operation C:
+            after A,
+            without B?
+                `Operation logic.`,
+    
+        D :: Nested opeation D:
+            default?
+                `Operation logic.`,
+    }.
 
-## Nested Operations
-
-```
-`TODO :: Nested operations.`
 ```
 

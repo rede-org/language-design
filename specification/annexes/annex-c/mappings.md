@@ -18,7 +18,7 @@ Int to Some Record: (i) => {Value A [i], Value B [0]}.
 
 ```
 Int per (Int => Int) to Some Record: (i, mapping) => 
-    {Value A [i], Value B [i -> mapping]}
+    {Value A [i], Value B [i -> mapping]}.
 ```
 
 ```
@@ -72,12 +72,14 @@ Iterable Value (T):
         index: Int,
         value: T
     },
+    
     `Create an operator to easily create updated values.`
     Increment this and update with (T => T): (update mapping) =>
         {
             index [this(index) + 1],
             value [this(value) -> update mapping]
         }.
+
 
 `Declare a mapping to condense a list to a record.
  The offset is used in the nested anonymous mapping, making a closure.`
@@ -103,17 +105,17 @@ Iterable Value (T):
 #### With Identifiers
 
 ```
-SR to Int :: Some Record to Int: (r) => r(Value A).
+Get A :: Some Record to Int: (r) => r(Value A).
 
 `Use within an Operation to declare a value from a Mapping result.`
-i: Int [r -> ST to Int];
+i: Int [r -> Get A];
 ```
 
 #### With Replacements
 
 ```
-Some Record to Int: (r) replaces SR To Int => 
-    -r(Value A);
+Some Record to Int: (r) replaces Get A => 
+    -r(Value A).
 ```
 
 ## Use
