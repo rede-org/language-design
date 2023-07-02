@@ -121,15 +121,15 @@ Some Record to Int: (r) replaces Get A =>
 ## Use
 
 ```
-r: Some Record [5 to Some Record];
+r: Some Record [5];  `The "to Some Record", for the mapping, is implicit.`
 ```
 
 ```
-sum: Int [some list to half sum Int];
+sum: Int [some list to half sum Int];  `Type details after "to" must be explicit.`
 ```
 
 ```
-e: Some Enum [2 to Some Enum];
+e: Some Enum [2];  `The "to Some Enum", for the mapping, is implicit.`
 ```
 
 ```
@@ -144,9 +144,9 @@ s: Special Int [[2, 3] -> mapping];
 
 ```
 mapping: (Int => String) [(i) => i to String];
-strings: {String*} [ints with mapping to {String*}];
+strings: {String*} [ints with mapping];  `"to {String*}" is implicit.`
 ```
 
 ```
-strings: {String*} [ints with [(i) => i to String] to {String*}];
+strings: {String*} [ints with [(i) => i to String]];  `"to {String*}" is implicit.`
 ```

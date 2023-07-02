@@ -35,6 +35,7 @@
   * [Meta](annexes/annex-c/meta.md)
   * [Operations](annexes/annex-c/operations/README.md)
     * [Groups](annexes/annex-c/operations/groups.md)
+  * [Patterns](annexes/annex-c/patterns.md)
 * [Annex D - Program Examples](annexes/annex-d/README.md)
   * [Hello World](annexes/annex-d/hello-world.md)
   * [Deserialization](annexes/annex-d/deserialization.md)
