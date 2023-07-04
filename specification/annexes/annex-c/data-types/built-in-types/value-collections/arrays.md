@@ -25,37 +25,38 @@ Sized Array Name: {Int[-1]*10*}.  `Array with 10 elements, with -1 as default va
 ### Containment
 
 ```
-some array: {Int**} ["b", "c", "d"];
+some array: {String**} ["b", "c", "d"];
 some array ("a"?) = false  `The value "a" is not in the array.`
 some array ("b"?) = true   `The value "b" is in the array.`
 ```
 
 ```
-some array: {Int**} ["b", "c", "d"];
-some array ("a"?, "b"?) = {false, true}  `Whether there is each value in the array.`
+some array: {String**} ["b", "c", "d"];
+some array ("a"?, "b"?) = {false, true}  `Whether each value is in the array.`
 ```
 
 ```
-some array: {Int**} ["b", "c", "d"];
+some array: {String**} ["b", "c", "d"];
 some array (0 ? "a") = "b"  `Provide the value at index 0, or default to "a".`
 some array (3 ? "a") = "a"
 ```
 
 ```
-some array: {Int**} ["b", "c", "d"];
+some array: {String**} ["b", "c", "d"];
 some array (0 ? "a", 3 ? "a") = {"b", "a"}
 ```
 
 ```
-some array: {Int**} ["b", "c", "d"];
+some array: {String**} ["b", "c", "d"];
 some array ({"a", "b"}?) = {false, true}  `Check for the values from the tuple.`
 ```
 
 ```
-some array: {Int**} ["b", "c", "d"];
+some array: {String**} ["b", "c", "d"];
 
-`Provide the values in the range of indices [1, 4), or default to "a".`
-some array ([1, 4) ? "a") = {"c", "d", "a"}
+`Provide the values in the range of indices [1, 3], or default to "a".`
+r: Range [1, 3];
+some array (r ? "a") = {"c", "d", "a"}
 ```
 
 ### Retrieving

@@ -55,6 +55,17 @@ Generic Record (TValue):
 ```
 
 ```
+`Declare a new generic type whose generic type parameter is limited to 
+types that fulfill specific contracts.`
+
+Generic Record (TValue [Some Contract, Other Contract] ):
+    {
+        Generic Value: TValue;
+        Other Value: Bool[false];
+    }.
+```
+
+```
 `Declare an anonymous type, as part of the variable declaration for a 
 variable called "record", to encapsulate a couple of values 
 as a single data type.`
@@ -124,6 +135,17 @@ Some Context [Valuable]: context
     {
         Value A: Int[0];
         Value B: Bool[false];
+    }.
+```
+
+```
+`Declare a new generic type whose generic type parameter is limited to 
+types that fulfill specific contracts.`
+
+Generic Context (TValue [Some Contract, Other Contract] ): context
+    {
+        Generic Value: TValue;
+        Other Value: Bool[false];
     }.
 ```
 
@@ -200,6 +222,16 @@ Valuable: contract
     {
         Value A: Int[0];
         Value B: Bool[false];
+    }.
+```
+
+```
+`Declare a new generic contract.`
+
+Generic Contract (TValue):
+    {
+        Generic Value: TValue;
+        Other Value: Bool[false];
     }.
 ```
 
@@ -788,11 +820,21 @@ Basic types that wrap existing types have variables that are assigned/declared t
 ### Assignment
 
 ```
-some record is {ValueA[1], ValueB[""]},
+some record is {Value A [1], Value B [""]},
 ```
 
 ```
-some record is {ValueA[1], ...},  `Match (default) remaining values.`
+some record is {Value A [1], ...},  `Match (default) remaining values.`
+```
+
+#### Context-Only Assignment
+
+```
+mutualist context <= Host A is another context,
+```
+
+```
+host context <= Mutualist A is another context,
 ```
 
 ### Declaration
@@ -810,7 +852,7 @@ some record: Record Name [A[1], B[""]];  `Default any unspecified values.`
 ```
 
 ```
-some record: Generic Record Name(int) [GenericA[1], NonGenericA[""]];
+some record: Generic Record Name(int) [Generic A [1], NonGeneric A [""]];
 ```
 
 ```
@@ -822,29 +864,20 @@ some record: Record Name [matching context];
 ```
 
 ```
-`Anonymous record composed of two unioned record types.
- Initialized values specified by unioned record instances.`
-some record: Record Name A + Record Name B [record a + record b];
+`Anonymous record composed of two unioned record types.`
+some record: Record Name A + Record Name B [record A + record B];
 ```
 
 ```
-some record: Record Name [other record with Record Mapping];
-```
-
-```
-some record: Record Name [other record where
-{
-    A is OtherA,
-    B is OtherB
-}];
+some record: Record Name [other record to Record Name];  `Explicit mapping.`
 ```
 
 #### Context-Only Declarations
 
 ```
-mutualist context: Context Name [matching record, HostA is other context];
+mutualist context: Context Name [matching record] <= HostA is other context;
 ```
 
 ```
-host context: Context Name [matching record, MutualistA is other context];
+host context: Context Name [matching record] <= MutualistA is other context;
 ```

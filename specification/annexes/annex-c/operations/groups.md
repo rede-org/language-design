@@ -34,7 +34,7 @@ Op Group ID :: Some example operation group for Context A and Context B:
     
         D :: Inner operation D:
             default?
-                `Operation logic.`
+                `Operation logic.`;
     }.
 
 ```

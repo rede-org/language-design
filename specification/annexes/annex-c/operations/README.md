@@ -26,6 +26,23 @@ Some defaulted example operation for Context A and Context B:
         `Operation logic.`
 ```
 
+```
+`Defines an operation where both contexts are generic contexts. Generic parameter 
+    names are not important as long as contracts match as specified by the context.`
+
+Some defaulted example operation for Context A (T[Number]) and Context B (T): 
+    <context a, context b>?
+        `Operation logic.`
+```
+
+```
+`Defines an operation where both contexts are defined as contracts.`
+
+Some defaulted example operation for Contract A and Contract B: 
+    <context a, context b>?
+        `Operation logic.`
+```
+
 ### Circumstantial Control Flow
 
 ```

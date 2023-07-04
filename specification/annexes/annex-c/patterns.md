@@ -9,7 +9,7 @@ description: >-
 ## Declaration
 
 ```
-Pattern Type: [matched value: int [-1]; s: string ["None"]; last value: bool].
+Pattern Type: [matched value: int [-1]; s: string ["None"]; last value: bool;].
 ```
 
 ## Use

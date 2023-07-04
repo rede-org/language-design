@@ -102,6 +102,16 @@ Iterable Value (T):
         ] (value).  `Retrieve and finally return the value of the Iterable Value.`
 ```
 
+```
+`General generic mapping.`
+(TValue) updated to (TValue): (v) => v * v;
+```
+
+```
+`Contract-specific generic mapping.`
+[Number] update to [Number]: (n) => n + n / 4;
+```
+
 #### With Identifiers
 
 ```
@@ -149,4 +159,16 @@ strings: {String*} [ints with mapping];  `"to {String*}" is implicit.`
 
 ```
 strings: {String*} [ints with [(i) => i to String]];  `"to {String*}" is implicit.`
+```
+
+```
+`General generic anonymous mapping.`
+mapping: ((T) => String) [(t) => "Mapped: \(t to String)"];
+s: String [2 -> mapping];
+```
+
+```
+`Contract-specific anonymous generic mapping.`
+mapping: ([Number] => String) [(t) => "Mapped: \(t to String)"];
+s: String [2 -> mapping];
 ```
