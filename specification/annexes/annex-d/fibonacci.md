@@ -1,6 +1,6 @@
 ---
 description: >-
-  The following program examples demonstrate how a fibonacci number can be found
+  The following program example demonstrates how a fibonacci number can be found
   for a given number.
 ---
 
