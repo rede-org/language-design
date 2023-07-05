@@ -1,18 +1,20 @@
 ---
 description: >-
-  The following program examples demonstrate how "Hello World!" can be output
+  The following program example demonstrates how "Hello World!" can be output
   upon program startup.
 ---
 
 # Hello World
 
 ```
-operationName: operation when initialized?
-    register ConsoleOutput, {Messages["Hello World!"]}.
+main: when initialized?
+    await output: Console Output; as Registration,
+    output(Messages) is "Hello World!".
 ```
 
 ```
-`Operation name is optional.`
-operation when initialized?
-    register ConsoleOutput, {Messages["Hello World!"]}.
+`Alternative, condensed version.`
+
+main: when initialized?
+    run !: Console Output [ Messages["Hello World!"] ]; as Registration.
 ```
