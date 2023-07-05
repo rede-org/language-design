@@ -27,10 +27,10 @@ Some defaulted example operation for Context A and Context B:
 ```
 
 ```
-`Defines an operation where both contexts are generic contexts. Generic parameter 
-    names are not important as long as contracts match as specified by the context.`
+`Defines an operation where both contexts are generic contexts. The generic 
+typing of Context A is limited to types fulfilling the contract, Number.`
 
-Some defaulted example operation for Context A (T[Number]) and Context B (T): 
+Some defaulted example operation for Context A (T [Number]) and Context B (T): 
     <context a, context b>?
         `Operation logic.`
 ```

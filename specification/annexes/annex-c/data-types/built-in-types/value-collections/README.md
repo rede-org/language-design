@@ -21,29 +21,29 @@ some list is list a + list b,
 ### Declaration
 
 ```
-some array: {int**} [1, 2, 3];
+some array: {Int**} [1, 2, 3];  `Undefined array size.`
 ```
 
 ```
-some array: {int*3*} [1, 2, 3];
+some array: {Int*3*} [1, 2, 3];  `Allocate size of 3 elements.`
 ```
 
 ```
-some array: {int[-1]*10*} [1, 2, 3];  `Expect size 10, default to -1 if undefined.`
+some array: {Int[-1]*10*} [1, 2, 3];  `Expect size 10, default to -1 if undefined.`
 ```
 
 ```
-some list: {int*} [1, 2, 3];
+some list: {Int*} [1, 2, 3];
 ```
 
 ```
-some list: listName [1, 2, 3];
+some specific list: List Name [1, 2, 3];
 ```
 
 ```
-some list: {int*} [listA + listB];
+some list: {Int*} [list a + list b];
 ```
 
 ```
-some dict: {string, int[-1]} [someList];  `Unique values become keys, -1 values.`
+some dict: {String, Int[-1]} [some list];  `Unique values become keys, -1 values.`
 ```

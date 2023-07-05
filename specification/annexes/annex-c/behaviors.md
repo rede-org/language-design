@@ -162,9 +162,10 @@ Some example behavior for Context A and Context B: {context a, context b},
 
 ```
 `Filter for a Behavior.`
-`Generic 'T' is treated as the defined type, Base Context.`
+`Generic 'T' is constrained to fulfillments of the contracts, Some Contract
+and Other Contract.`
 
-Manage {*T*} (T [Base Context]): {contexts},
+Manage {*T*} (T [Some Contract, Other Contract]): {contexts},
     where contexts filtered by [(a) => a meets criteria]?
     
     `Behavior Operations.`
@@ -174,10 +175,10 @@ Manage {*T*} (T [Base Context]): {contexts},
 
 ```
 `Sort for a Behavior.`
-`Generic 'T' is treated as the defined type, Base Context.`
+`The bucket can contain any contexts that fulfill the contract, Some Contract.`
 
-Manage {*T*} (T [Base Context]): {contexts},
-    where contexts sorted by [(a, b => a - b]?
+Manage {*Some Contract*}: {contexts},
+    where contexts sorted by [(a, b) => a - b]?
     
     `Behavior Operations.`
 ```

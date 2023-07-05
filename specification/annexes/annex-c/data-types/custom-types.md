@@ -70,12 +70,12 @@ Generic Record (TValue [Some Contract, Other Contract] ):
 variable called "record", to encapsulate a couple of values 
 as a single data type.`
 
-record: {A: int[-1]; B: int;} [B[2]];
+record: {A: Int[-1]; B: Int;} [B[2]];
 ```
 
 ```
 `Declare a new type called "Alias Record" that replaces some of its 
-underlying type's values, essentially aliasing them. Replacing value types 
+ancestor type's values, essentially aliasing them. Replacing value types 
 must be convertible to/from their replaced value types.`
 
 Alias Record: Some Record
@@ -87,7 +87,7 @@ Alias Record: Some Record
 
 ```
 `Declare a new type called "Extending Record" that extends its 
-underlying type with new values.`
+ancestor type with new values.`
 
 Extending Record: Some Record
     {
@@ -98,7 +98,7 @@ Extending Record: Some Record
 
 ```
 `Declare a new type called "Focused Record" that removes a value 
-from its underlying type.
+from its ancestor type.
 
 Focused Record: Some Record
     {
@@ -180,7 +180,7 @@ Some Mutualist: context
 
 ```
 `Declare a new type called "Alias Context" that replaces some of its 
-underlying type's values, essentially aliasing them. Replacing value types 
+ancestor type's values, essentially aliasing them. Replacing value types 
 must be convertible to/from their replaced value types.`
 
 Alias Context: context Some Context
@@ -192,7 +192,7 @@ Alias Context: context Some Context
 
 ```
 `Declare a new type called "Extending Context" that extends its 
-underlying type with new values.`
+ancestor type with new values.`
 
 Extending Context: context Some Context
     {
@@ -203,7 +203,7 @@ Extending Context: context Some Context
 
 ```
 `Declare a new type called "Focused Context" that removes a value 
-from its underlying type.
+from its ancestor type.
 
 Focused Context: context Some Context
     {
@@ -237,7 +237,7 @@ Generic Contract (TValue):
 
 ```
 `Declare a new type called "Alias Contract" that replaces some of its 
-underlying contract type's values, essentially aliasing them. 
+ancestor contract type's values, essentially aliasing them. 
 Replacing value types must be convertible to/from their replaced value types.`
 
 Alias Contract: contract Valuable
@@ -249,7 +249,7 @@ Alias Contract: contract Valuable
 
 ```
 `Declare a new type called "Extending Contract" that extends its 
-underlying contract type with new values.`
+ancestor contract type with new values.`
 
 Extending Contract: contract Valuable
     {
@@ -260,7 +260,7 @@ Extending Contract: contract Valuable
 
 ```
 `Declare a new type called "Focused Contract" that removes a value 
-from its underlying contract type.
+from its ancestor contract type.
 
 Focused Contract: contract Valuable
     {
@@ -283,7 +283,7 @@ Some Enum: [Byte]
 ```
 
 ```
-`Declare a new type called "Alias Enum" that wraps around another 
+`Declare a new type called "Alias Enum" that wraps around an ancestor 
 enum's members, essentially aliasing them.`
 
 Alias Enum: [Some Enum]
@@ -296,9 +296,9 @@ Alias Enum: [Some Enum]
 
 ```
 `Declare a new type called "Extending Enum" that provides additional 
-members pointing to the members of its underlying enum.`
+members pointing to the members of its ancestor enum.`
 
-Alias Enum: [Some Enum]
+Extending Enum: [Some Enum]
     {
         First[A],
         Second[B],
@@ -309,9 +309,9 @@ Alias Enum: [Some Enum]
 
 ```
 `Declare a new type called "Focused Enum" that leaves out some of 
-the members of its underlying enum.`
+the members of its ancestor enum.`
 
-Alias Enum: [Some Enum]
+Focused Enum: [Some Enum]
     {
         First[A],
         Second[B]
@@ -436,7 +436,7 @@ Some Record:
     reset this: () | 
         this(Value A) is 0, 
         this(Value B) is false;
-    update this with int: (i) | 
+    update this with Int: (i) | 
         this(Value A) is i,
         this(Value B) is i > 10.
 ```
@@ -452,7 +452,7 @@ Some Record:
     Reset :: reset this: () | 
         this(Value A) is 0, 
         this(Value B) is false;
-    Update :: update this with int: (i) | 
+    Update :: update this with Int: (i) | 
         this(Value A) is i,
         this(Value B) is i > 10.
 ```
@@ -463,7 +463,7 @@ Some Record:
 Alias Record: Some Record,
     refresh this: () replaces Reset | 
         reset this;
-    set this for int: (i) replaces Update | 
+    set this for Int: (i) replaces Update | 
         update this with i.
 ```
 
@@ -583,7 +583,7 @@ Some Record:
         Value A: Int[0];
         Value B: Bool[false];
     },
-    Is Valid :: this is valid for Int: (limit) => 
+    is valid :: this is valid for Int: (limit) => 
         this(Value A) <= limit.
 ```
 
@@ -599,7 +599,7 @@ Focused Record: Some Record,
 
 ```
 Alias Record: Some Record,
-    this is qualifies with Int: (limit) replaces Is Valid => 
+    this is qualified with Int: (limit) replaces Is Valid => 
         this is valid for limit.
 ```
 {% endtab %}
@@ -614,11 +614,11 @@ Alias Record: Some Record,
 
 Record Name: 
     {
-        A: int[-1];
-        B: int[0];
+        A: Int[-1];
+        B: Int[0];
     }.
 
-some record: Record Name, {B[2]};
+some record: Record Name, { B[2] };
 ```
 
 ### Retrieving
@@ -646,7 +646,7 @@ some record (A) is 2,
 ```
 
 ```
-some record (A, B) is {A[1], B[""]},
+some record (A, B) is {1, ""},
 ```
 
 ```
@@ -658,11 +658,7 @@ some record (A, B) is other record (A[C], B[D]),
 ```
 
 ```
-some record !(A) is {B[3]},
-```
-
-```
-some record !(A) is {...},  `Match remaining values.`
+some record !(A) is { B[3] },  `Assign specific remaining values.`
 ```
 
 ```
@@ -670,15 +666,7 @@ some record (...) is matching record,  `Assign all values.`
 ```
 
 ```
-some record (...) is other record with record mapping,
-```
-
-```
-some record (...) is other record where
-{
-    A is OtherA,
-    B is OtherB
-},
+some record (...) is other record to Record Name,  `Assign after mapping.`
 ```
 
 ```
@@ -696,22 +684,22 @@ By default, a custom type that wraps an existing type inherits the operators of 
 ### Difference
 
 ```
-some record: {A: int[-1]; B: int;}, {B[2]};
-other record: {A: int, 0;}, { };
+some record: { A: Int[-1]; B: Int; } [ B[2] ];
+other record: { A: Int[0]; };
 
-some record - other record = {B[2]}
+some record - other record = { B[2] }
 ```
 
 ```
 Record Name:
 {
-    A: int[0];
-    C: int[-1];
+    A: Int[0];
+    C: Int[-1];
 }.
 
-some record: {A: int[-1]; B: int;}, {B[2]};
+some record: { A: Int[-1]; B: Int; } [ B[2] ];
 
-some record - Record Name = {B[2]}
+some record - Record Name = { B[2] }
 ```
 
 ### Equality
@@ -723,14 +711,14 @@ some record - Record Name = {B[2]}
 
 Context Name: context
     {
-        A: int[-1];
-        B: string[""];
+        A: Int[-1];
+        B: String[""];
     }.
 
 Record Name:
     {
-        A: int[-1];
-        B: string[""];
+        A: Int[-1];
+        B: String[""];
     }.
 
 c: Context Name;
@@ -740,11 +728,11 @@ r: Record Name;
 #### Approximate
 
 ```
-r ~ {A[-1]},
+r ~ { A[-1] },
 ```
 
 ```
-r (A, B) ~ c (B),
+r(A, B) ~ c(B),
 ```
 
 #### Strict
@@ -754,15 +742,15 @@ r = c,
 ```
 
 ```
-r = {A[-1], B[""]},
+r = { A[-1], B[""] },
 ```
 
 ```
-r = {A[-1], ...},  `Match remaining values.`
+r = { A[-1], ... },  `Match remaining values.`
 ```
 
 ```
-r (A, B) = {A[-1], B[""]},
+r (A, B) = { A[-1], B[""] },
 ```
 
 ```
@@ -772,43 +760,43 @@ r (A, B) = c (A, B),
 ### Intersection
 
 ```
-some record: {A: int[-1]; B: int;}, {B[2]};
-other record: {A: int[0];}, { };
+some record: { A: Int[-1]; B: Int; } [ B[2] ];
+other record: { A: Int[0]; }, { };
 
-some record % other record = {A[-1]}
+some record % other record = { A[-1] }
 ```
 
 ```
 Record Name:
 {
-    A: int, 0;
-    C: int -1;
+    A: Int, 0;
+    C: Int -1;
 }.
 
-some record: {A: int[-1]; B: int;};
+some record: { A: Int[-1]; B: Int; };
 
-some record % Record Name = {A[-1]}
+some record % Record Name = { A[-1] }
 ```
 
 ### Union
 
 ```
-some record: {A: int[-1]; B: int[0];}, {B[2]};
-other record: {A: int[0]; C: int[0];}, { };
+some record: { A: Int[-1]; B: Int[0]; }, { B[2] };
+other record: { A: Int[0]; C: Int[0]; }, { };
 
-some record + other record = {A[-1], B[2], C[0]}
+some record + other record = { A[-1], B[2], C[0] }
 ```
 
 ```
 Record Name:
 {
-    A: int[0];
-    C: int[-1];
+    A: Int[0];
+    C: Int[-1];
 }.
 
-some record: {A: int[-1]; B: int;}, {B[2]};
+some record: { A: Int[-1]; B: Int; } [ B[2] ];
 
-some record + Record Name = {A[-1], B[2], C[-1]}
+some record + Record Name = { A[-1], B[2], C[-1] }
 ```
 {% endtab %}
 {% endtabs %}
@@ -848,11 +836,11 @@ some record: Generic Record Name(int); `Declare with all default values.`
 ```
 
 ```
-some record: Record Name [A[1], B[""]];  `Default any unspecified values.`
+some record: Record Name [ A[1], B[""] ];  `Default any unspecified values.`
 ```
 
 ```
-some record: Generic Record Name(int) [Generic A [1], NonGeneric A [""]];
+some record: Generic Record Name(int) [ Generic A [1], NonGeneric A [""] ];
 ```
 
 ```

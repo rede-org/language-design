@@ -21,9 +21,11 @@ comment.`
 ## Among Other Code
 
 ```
-aliasName: `This is an in-line comment.' [typeName]
-    `This is another 
-    multiline comment.`
-    AliasA[MemberA],
-    AliasB[MemberB] `This is another in-line comment.`.
+Extending Context: `This is an in-line comment.` context Some Context
+    {
+        `This is another 
+        multiline comment.`
+        Value C: String[""];
+        Value D: Bool[true];
+    } `This is another in-line comment.`.
 ```
