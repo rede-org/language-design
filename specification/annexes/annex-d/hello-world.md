@@ -1,13 +1,13 @@
 ---
 description: >-
-  The following program example demonstrates how "Hello World!" can be output
+  The following program examples demonstrate how "Hello World!" can be output
   upon program startup.
 ---
 
 # Hello World
 
 ```
-main: when initialized?
+Main: when initialized?
     await output: Console Output; as Registration,
     output(Messages) is "Hello World!".
 ```
@@ -15,6 +15,6 @@ main: when initialized?
 ```
 `Alternative, condensed version.`
 
-main: when initialized?
+Main: when initialized?
     run !: Console Output [ Messages["Hello World!"] ]; as Registration.
 ```

@@ -37,6 +37,7 @@
     * [Groups](annexes/annex-c/operations/groups.md)
   * [Patterns](annexes/annex-c/patterns.md)
 * [Annex D - Program Examples](annexes/annex-d/README.md)
+  * [Fibonacci](annexes/annex-d/fibonacci.md)
   * [Hello World](annexes/annex-d/hello-world.md)
   * [Deserialization](annexes/annex-d/deserialization.md)
   * [Serialization](annexes/annex-d/serialization.md)
