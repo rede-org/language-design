@@ -40,5 +40,6 @@
   * [Hello World](annexes/annex-d/hello-world.md)
   * [FizzBuzz](annexes/annex-d/fizzbuzz.md)
   * [Fibonacci](annexes/annex-d/fibonacci.md)
+  * [Shape Drawing](annexes/annex-d/shape-drawing.md)
   * [Deserialization](annexes/annex-d/deserialization.md)
   * [Serialization](annexes/annex-d/serialization.md)

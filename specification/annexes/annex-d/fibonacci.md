@@ -14,7 +14,7 @@ Find fibonacci for Application Inputs: <inputs>,
 
 Int to fibonacci Int: (i) ??
     i < 2 => i,
-    default => i - 1 to fibonacci + (i - 2 to fibonacci).
+    default => (i - 1) to fibonacci + (i - 2) to fibonacci.
 
 Int to fibonacci result String: (i) => 
     "Fibonacci: \(i to fibonacci to String)".

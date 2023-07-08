@@ -56,11 +56,20 @@ An initialization operation with Context A: <context a>,
 
 ```
 `The operation will only be performed if no other operations within the same 
-    encapsulation and matching the same operable signature (<context a>) will 
+    encapsulation or matching the same operable signature (<context a>) will 
     be performed.`
 
 Some other operation with Context A: <context a>,
     when default?
+        `Operation logic.`
+```
+
+```
+`The operation will only be performed when the encapsulating application/behavior 
+    is being terminated.`
+
+A termination operation with Context A <context a>,
+    when terminated?
         `Operation logic.`
 ```
 
