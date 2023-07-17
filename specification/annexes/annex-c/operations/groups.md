@@ -17,22 +17,22 @@ description: >-
 Op Group ID :: Some example operation group for Context A and Context B: 
     <context a, context b>?
     {
-        A :: Inner operation A:
+        Inner Operation A :: 
             when context a (Value A) > context b (Value A)?
                 `Operation logic.`;
     
-        B :: Inner operation B:
+        Inner operation B ::
             when context a (Value B) > context b (Value B),
             after A, 
             with A?
                 `Operation logic.`;
     
-        C :: Inner operation C:
+        Inner operation C ::
             after A,
             without B?
                 `Operation logic.`;
     
-        D :: Inner operation D:
+        Inner operation D ::
             default?
                 `Operation logic.`;
     }.

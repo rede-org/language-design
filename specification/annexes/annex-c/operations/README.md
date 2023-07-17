@@ -189,6 +189,14 @@ Some Example Operation :: Some example operation for Context A and Context B:
         `Operation logic.`
 ```
 
+```
+`Define an operation only known by its identifier, since it requires no contexts.`
+
+Some Initialization Operation ::
+    when initialized?
+        `Operation logic.`
+```
+
 ### Extensions
 
 ```

@@ -18,13 +18,15 @@ Fizzbuzz for Application Inputs: <inputs>,
 Evaluate Input as Fizzbuzz: <input, fizzbuzz>
     foreach i in !: Range(1, input)?
 {
-    Mod 15: when i % 15?
+    Mod 15 :: when i % 15?
         fizzbuzz is fizzbuzz + "fizzbuzz";
-    Mod 5: when i % 5?
+    Mod 5 :: when i % 5,
+        without Mod 15?
         fizzbuzz is fizzbuzz + "buzz";
-    Mod 3: when i % 3?
+    Mod 3 :: when i % 3,
+        without Mod 15?
         fizzbuzz is fizzbuzz + "fizz";
-    Otherwise: default?
+    Otherwise :: default?
         fizzbuzz is fizzbuzz + i to String;
 }
 ```
