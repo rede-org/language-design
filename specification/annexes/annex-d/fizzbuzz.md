@@ -10,7 +10,7 @@ description: >-
 Input: readonly context Int.
 Fizzbuzz: context {String*}.
 
-Fizzbuzz for Application Inputs: <inputs>,
+Main for Application Inputs: <inputs>,
     when initialized?
         await <inputs(0) as Input, result: Fizzbuzz;>,
         run !: Console Output [ Messages[result] ] as Registration.
