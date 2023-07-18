@@ -14,17 +14,17 @@ The Object-Oriented equivalent found [here](https://learn.microsoft.com/en-us/do
 
 App State: context
 {
-    Should Draw: bool [true];
+    Should Draw: Bool [true];
 }.
 
 Draw Plane: context { `Data defining a plane that can be drawn to.` }.
 
 Shape: context
 {
-    X: int;
-    Y: int;
-    Height: int [1];
-    Width: int [1];
+    X: Int;
+    Y: Int;
+    Height: Int [1];
+    Width: Int [1];
 }.
 
 Circle: context Shape.
