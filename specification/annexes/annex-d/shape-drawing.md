@@ -19,7 +19,15 @@ App State: context
 
 Draw Plane: context { `Data defining a plane that can be drawn to.` }.
 
-Shape: context
+Drawable: contract
+{
+    X: Int;
+    Y: Int;
+    Height: Int [1];
+    Width: Int [1];
+}
+
+Shape [Drawable]: context
 {
     X: Int;
     Y: Int;
@@ -27,9 +35,9 @@ Shape: context
     Width: Int [1];
 }.
 
-Circle: context Shape.
-Rectangle: context Shape.
-Triangle: context Shape.
+Circle [Drawable]: context Shape.
+Rectangle [Drawable]: context Shape.
+Triangle [Drawable]: context Shape.
 ```
 
 ```
@@ -48,11 +56,11 @@ Draw Triangle on Draw Plane: <triangle, plane>?
 ```
 `Declare a behavior to coordinate the drawing of the shapes to the draw plane.`
 
-Draw {*Shape*} on Draw Plane for proper App State: {shapes, plane, state}?
-    Draw: for {shapes, plane, state},
+Draw {*Drawable*} on Draw Plane for proper App State: {drawables, plane, state}?
+    Draw: for {drawables, plane, state},
         whenever state(Should Draw),
-        foreach shape in shapes?
-            await <shape, plane>.
+        foreach drawable in drawables?
+            await <drawable, plane>.
 ```
 
 ```
